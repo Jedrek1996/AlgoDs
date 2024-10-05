@@ -32,14 +32,14 @@ var deleteMiddle = function (head) {
 
   let fastPointer = head;
   let slowPointer = head;
-  let prev = null;
+  let beforeSlow = null;
 
   while (fastPointer != null && fastPointer.next != null) {
     fastPointer = fastPointer.next.next;
-    prev = slowPointer;
+    beforeSlow = slowPointer;
     slowPointer = slowPointer.next;
   }
 
-  prev.next = slowPointer.next;
+  beforeSlow.next = slowPointer.next;
   return head;
 };

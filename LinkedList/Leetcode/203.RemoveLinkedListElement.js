@@ -15,79 +15,23 @@ Output: []
 */
 
 // Definition for singly-linked list.
-class ListNode {
-  constructor(val = 0, next = null) {
-    this.val = val; // corrected from this.value to this.val
-    this.next = next;
-  }
-}
 
-class LinkedList {
-  constructor(value) {
-    // added value parameter
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-
-    if (value !== undefined) {
-      this.push(value); // Initialize the list with the head node
-    }
-  }
-
-  push(value) {
-    const newNode = new ListNode(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
-    } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
-    }
-    this.length++;
-  }
-
-  toArray() {
-    const values = [];
-    let current = this.head;
-    while (current) {
-      values.push(current.val); // corrected from current.value to current.val
-      current = current.next;
-    }
-    return values;
-  }
-}
-
-/**
- * @param {ListNode} head
+/* @param {ListNode} head
  * @param {number} val
  * @return {ListNode}
  */
 
-//✨✨✨✨✨ SOLUTION ✨✨✨✨✨
+//Will need to create a new node as the first node might be removed.
 let removeElements = function (head, val) {
-  let newNode = new ListNode(0); // dummy node
-  newNode.next = head; // point to original head
-  let current = newNode; // current pointer to traverse the list
+  let newNode = new ListNode(0, head);
+  let curr = newNode;
 
-  while (current.next) {
-    if (current.next.val === val) {
-      // check if the next node needs to be removed
-      current.next = current.next.next; // skip and replace next node
+  while (curr && curr.next) {
+    if (curr.next.val === val) {
+      curr.next = curr.next.next;
     } else {
-      current = current.next; // move to the next node
+      curr = curr.next;
     }
   }
-
-  return newNode.next; // return the new head of the list (dummy node next)
+  return newNode.next;
 };
-//✨✨✨✨✨ END OF SOLUTION ✨✨✨✨✨
-
-// Test function to verify the functionality
-const testRemoveElements = () => {
-  const list1 = new LinkedList(1);
-  [2, 6, 3, 4, 5, 6].forEach((num) => list1.push(num));
-  removeElements(list1.head, 6);
-  console.log("List values after removal:", list1.toArray());
-};
-
-testRemoveElements();
