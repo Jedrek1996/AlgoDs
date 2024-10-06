@@ -112,7 +112,7 @@ class DoublyLinkedList {
     let newNode = new Node(value);
 
     newNode.prev = before;
-    newNow.after = after;
+    newNode.next = after;
     after.prev = newNode;
     before.next = newNode;
 

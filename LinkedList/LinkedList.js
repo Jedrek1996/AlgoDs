@@ -187,3 +187,15 @@ console.log("Setting node value:", myLinkedList);
 
 let insertingNode = myLinkedList.insert(1, 12345);
 console.log("Setting node value:", myLinkedList);
+
+/*
+Create New Node When:
+Initialize
+Prepend
+Append
+Insert
+Merge
+Don’t Create New Node When:
+Update
+Swap
+Reorder */

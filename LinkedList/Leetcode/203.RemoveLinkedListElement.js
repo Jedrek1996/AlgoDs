@@ -23,8 +23,8 @@ Output: []
 
 //Will need to create a new node as the first node might be removed.
 let removeElements = function (head, val) {
-  let newNode = new ListNode(0, head);
-  let curr = newNode;
+  let dummy = new ListNode(0, head);
+  let curr = dummy;
 
   while (curr && curr.next) {
     if (curr.next.val === val) {
@@ -33,5 +33,5 @@ let removeElements = function (head, val) {
       curr = curr.next;
     }
   }
-  return newNode.next;
+  return dummy.next;
 };

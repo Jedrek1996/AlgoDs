@@ -19,18 +19,18 @@ Output: [1,2,3,5]
  * @return {ListNode}
  */
 var removeNthFromEnd = function (head, n) {
-  let curr = new ListNode(0, head);
-  let start = curr;
+  let dummy = new ListNode(0, head);
+  let start = dummy;
 
   for (let i = 0; i < n; i++) {
     head = head.next;
   }
 
-  while(head){
-    head = head.next
-    curr = curr.next
+  while (head) {
+    head = head.next;
+    dummy = dummy.next;
   }
 
-  curr.next = curr.next.next
-  return start.next
+  dummy.next = dummy.next.next;
+  return start.next;
 };

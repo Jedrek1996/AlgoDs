@@ -48,8 +48,8 @@ var mergeKLists = function (lists) {
 };
 
 let mergeLists = (listA, listB) => {
-  let newNode = new ListNode();
-  let curr = newNode;
+  let dummy = new ListNode();
+  let curr = dummy;
 
   while (listA && listB) {
     if (listA.val < listB.val) {
@@ -63,5 +63,5 @@ let mergeLists = (listA, listB) => {
   }
 
   curr.next = listA || listB;
-  return newNode.next;
+  return dummy.next;
 };
