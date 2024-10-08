@@ -31,26 +31,27 @@ var addTwoNumbers = function (l1, l2) {
     stackA.push(l1.val);
     l1 = l1.next;
   }
+
   while (l2) {
     stackB.push(l2.val);
     l2 = l2.next;
   }
 
   let dummy = new ListNode(0);
-  let curr = dummy;
-  let carry = 0;
 
-  while (stackA.length || stackB.length || carry) {
+  let carry = 0;
+  let total = 0;
+
+  while (stackA.length > 0 || stackB.length > 0 || carry) {
     let a = stackA.pop() || 0;
     let b = stackB.pop() || 0;
+    total = a + b + carry;
 
-    let total = b + a + carry;
-    let num = total % 10;
+    let sum = total % 10;
     carry = Math.floor(total / 10);
-
-    let newNode = new ListNode(num);
-    curr.next = newNode; 
-    curr = newNode;
+    let newNode = new ListNode(sum);
+    newNode.next = dummy.next;
+    dummy.next = newNode;
   }
   return dummy.next;
 };

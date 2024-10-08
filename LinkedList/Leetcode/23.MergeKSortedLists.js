@@ -41,7 +41,7 @@ var mergeKLists = function (lists) {
     a = lists.shift();
     b = lists.shift();
 
-    merged = mergeLists(a, b);
+    let merged = mergeLists(a, b);
     lists.push(merged);
   }
   return lists[0];
