@@ -31,8 +31,9 @@ var rotateRight = function (head, k) {
     curr = curr.next;
   }
 
-  //Step 4: The actual magic, explained above
-  while (curr.next) { //to make sure the next node is not empty
+  //Step 4: To move the nodes forward to the end. Since curr.next has been pushed in step3.
+  while (curr.next) {
+    //to make sure the next node is not empty
     prev = prev.next;
     curr = curr.next;
   }
@@ -44,6 +45,6 @@ var rotateRight = function (head, k) {
   return head;
 };
 
-//Basically moves current first how many times ahead.
-//Create a prev pointer that loops to track the distance. PREV IS TAIL
+// Basically moves current first how many times ahead.
+// Create a prev pointer that loops to track the distance. PREV IS TAIL
 // CURR IS HED HEAD = PREV.NEXT TO BREAK THE LOOP

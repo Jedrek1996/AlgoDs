@@ -18,28 +18,18 @@ Output: [1,5,2,4,3]
 */
 
 var reorderList = function (head) {
-  if (!head || !head.next) return; 
+  if (!head || !head.next) return;
+  let slowP = head;
+  let fastP = head;
 
-  let slow = head;
-  let fast = head;
-  while (fast.next && fast.next.next) {
-    slow = slow.next;
-    fast = fast.next.next;
+  while (fastP && fastP.next) {
+    slowP = slowP.next;
+    fastP = fastP.next.next;
   }
 
-  let prev = null;
-  let curr = slow.next;
-  while (curr) {
-    let nextNode = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = nextNode;
-  }
-  slow.next = null; 
-
-  // Merge the two halves
-  let p1 = head; 
-  let p2 = prev; 
+  let p1 = head;
+  let p2 = reverse(slowP.next);
+  slowP.next = null; //Cuts the list into half as we only reversed the second half EG. 1,2,3,6,5,4
 
   // Cannot use p1 = p1.next and p2 = p2.next as it will override.
   //[1,2,3] [6,5,4]
@@ -55,4 +45,43 @@ var reorderList = function (head) {
   }
 
   return head; // Return the head of the reordered list
+};
+
+var reorderList = function (head) {
+  let slowP = head;
+  let fastP = head;
+
+  while (fastP && fastP.next) {
+    slowP = slowP.next;
+    fastP = fastP.next.next;
+  }
+
+  let p1 = head;
+  let p2 = reverse(slowP.next);
+  slowP.next = null; //Cuts the list into half
+
+  while (p1 && p2) {
+    temp1 = p1.next;
+    temp2 = p2.next;
+
+    p1.next = p2;
+    p2.next = temp1;
+
+    p1 = temp1;
+    p2 = temp2;
+  }
+  return head;
+};
+
+let reverse = (list) => {
+  let curr = list;
+  let prev = null;
+
+  while (curr) {
+    let next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+  return prev;
 };
