@@ -31,7 +31,6 @@ cur > 0: true, push 10 into stack
 
 */
 var asteroidCollision = function (asteroids) {
-  
   const res = [];
 
   for (let i = 0; i < asteroids.length; i++) {
@@ -53,4 +52,22 @@ var asteroidCollision = function (asteroids) {
   }
 
   return res;
+};
+var asteroidCollision = function (asteroids) {
+  let stack = [];
+
+  for (let i = 0; i < asteroids.length; i++) {
+    let cur = asteroids[i];
+    let prev = stack[stack.length - 1];
+
+    if (!stack.length || cur > 0 || prev < 0) {
+      stack.push(cur);
+    } else if (-cur === prev) {
+      stack.pop();
+    } else if (-cur > prev) {
+      stack.pop();
+      i--;
+    }
+  }
+  return stack;
 };

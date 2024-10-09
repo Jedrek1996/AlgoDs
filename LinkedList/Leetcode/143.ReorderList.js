@@ -47,31 +47,6 @@ var reorderList = function (head) {
   return head; // Return the head of the reordered list
 };
 
-var reorderList = function (head) {
-  let slowP = head;
-  let fastP = head;
-
-  while (fastP && fastP.next) {
-    slowP = slowP.next;
-    fastP = fastP.next.next;
-  }
-
-  let p1 = head;
-  let p2 = reverse(slowP.next);
-  slowP.next = null; //Cuts the list into half
-
-  while (p1 && p2) {
-    temp1 = p1.next;
-    temp2 = p2.next;
-
-    p1.next = p2;
-    p2.next = temp1;
-
-    p1 = temp1;
-    p2 = temp2;
-  }
-  return head;
-};
 
 let reverse = (list) => {
   let curr = list;
