@@ -49,18 +49,3 @@ if i = 1, sum = arr[1] + arr[6-1-1] <<3 + 9>>
 if i = 2, sum = arr[2] + arr[6-2-1] <<5 + 7>>
 */
 
-var pairSum = function (head) {
-  let arr = [];
-  let max = 0;
-
-  while (head) {
-    arr.push(head.val);
-    head = head.next;
-  }
-
-  for (let i = 0; i < arr.length / 2; i++) {
-    let sum = arr[i] + arr[arr.length - i - 1];
-    max = Math.max(sum, max);
-  }
-  return max;
-};
