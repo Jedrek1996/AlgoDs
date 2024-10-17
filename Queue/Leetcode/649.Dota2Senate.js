@@ -54,24 +54,19 @@ Code
  */
 
 function predictPartyVictory(senate) {
-  // Initialize two arrays to keep track of the indices of the senators from each party.
   let radiant = [];
   let dire = [];
   const n = senate.length;
 
-  // Loop through each senator in the given order.
+  // If the senator is from the Dire party, add their index to the dire array
+  // with an offset of n, representing their vote in the next round.
   for (let i = 0; i < n; i++) {
-    // If the senator is from the Radiant party, add their index to the radiant array
-    // with an offset of n, representing their vote in the next round.
     if (senate[i] === "R") {
       radiant.push(i + n);
     } else {
-      // If the senator is from the Dire party, add their index to the dire array
-      // with an offset of n, representing their vote in the next round.
       dire.push(i + n);
     }
   }
-
   // Loop through each round until one party has all the votes.
   while (radiant.length > 0 && dire.length > 0) {
     // Compare the indices of the first senator from each party.
@@ -92,5 +87,26 @@ function predictPartyVictory(senate) {
   }
 
   // Return the winner of the voting procedure based on which party has remaining votes.
+  return radiant.length > 0 ? "Radiant" : "Dire";
+}
+
+function predictPartyVictory(senate) {
+  let radiant = [];
+  let dire = [];
+  const n = senate.length;
+
+  for (let i = 0; i < n; i++) {
+    senate[i] === "R" ? radiant.push(i + n) : dire.push(i + n);
+  }
+
+  while (radiant.length > 0 && dire.length > 0) {
+    radiant[0] < dire[0]
+      ? radiant.push(radiant[0] + n)
+      : dire.push(dire[0] + n);
+
+    radiant.shift();
+    dire.shift();
+  }
+
   return radiant.length > 0 ? "Radiant" : "Dire";
 }

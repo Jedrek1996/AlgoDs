@@ -34,13 +34,14 @@ stream = [ 1, 100, 3001 ]
 ping(3002)
 stream = [ 100, 3001, 3002 ] 
 Return the stream's count after each call
+*/
 var RecentCounter = function() {
     this.stream = []
 };
-*/
 
 RecentCounter.prototype.ping = function(t) {
-    this.stream.push(t) // Everytime we recieve a ping, add the time to the stream of integers
+  // Everytime we recieve a ping, add the time to the stream of integers
+  this.stream.push(t) 
   /*
   To exclude the times that are not included within the range of t - 3000,
   we remove the first element from the stream while it is less than the calculated range 
