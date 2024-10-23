@@ -27,7 +27,7 @@ var maxSlidingWindow = function (nums, k) {
 
   for (let i = 0; i < nums.length; i++) {
     // Remove indices of elements smaller than the current element eg. [5,6] we pop 5 index
-    while (q.length && nums[q[q.length - 1]] <= nums[i]) {
+    while (q.length && nums[i] >= nums[q[q.length - 1]]) {
       q.pop(); // These elements are not useful for max calculation
     }
     // Add the current element's index to the deque
@@ -46,7 +46,7 @@ var maxSlidingWindow = function (nums, k) {
   const res = [];
 
   for (let i = 0; i < nums.length; i++) {
-    while (q.length && nums[q[q.length - 1]] <= nums[i]) {
+    while (q.length && nums[i] >= nums[q[q.length - 1]]) {
       q.pop();
     }
     q.push(i);
