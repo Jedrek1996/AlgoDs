@@ -56,25 +56,16 @@ function postorderDFSIterative(root) {
 
   const result = [];
   const stack = [root];
-  const visited = new Set(); // To track visited nodes
 
   while (stack.length) {
-    const currentNode = stack[stack.length - 1];
+    const currentNode = stack.pop();
+    result.push(currentNode.value);
 
-    // If node has left or right children, push them to the stack
-    if (currentNode.left && !visited.has(currentNode.left)) {
-      stack.push(currentNode.left);
-    } else if (currentNode.right && !visited.has(currentNode.right)) {
-      stack.push(currentNode.right);
-    } else {
-      // If both children are processed or none exist, process the current node
-      result.push(currentNode.value);
-      visited.add(currentNode);
-      stack.pop();
-    }
+    if (currentNode.left) stack.push(currentNode.left);
+    if (currentNode.right) stack.push(currentNode.right);
   }
 
-  return result;
+  return result.reverse();
 }
 
 /* 🐈 
@@ -115,3 +106,22 @@ function inorderDFSIterative(root) {
 
   return result; // Return the collected values in in-order
 }
+/*
+ 
+       1 
+      / \
+     2   3
+    / \   \
+   4   5   6
+   Expected: 4 , 2 , 5, 1 ,3 , 6
+
+         1
+       /   \
+      2      3
+     / \    / \
+    4   5  6   7
+   / \      \
+  8   9      10
+
+  Expected:  [8, 4, 9, 2, 5, 1, 6, 10, 3, 7]
+*/

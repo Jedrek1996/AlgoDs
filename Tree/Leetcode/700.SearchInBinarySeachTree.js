@@ -10,9 +10,10 @@ Input: root = [4,2,7,1,3], val = 5
 Output: []
 */
 
-var searchBST = function(root, val) {
-    while(root !== null && root.val !== val){
-        root = val < root.val ? root.left : root.right;
-    }
-    return root;
-}
+var searchBST = function (root, val) {
+  if (!root) return null;
+
+  if (root.val === val) return root;
+  else if (root.val > val) return searchBST(root.left, val);
+  else if (root.val < val) return searchBST(root.right, val);
+};

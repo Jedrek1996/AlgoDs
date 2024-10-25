@@ -1,67 +1,59 @@
-function preoRDER() {
+function bfs(root) {
+  let queue = [root];
   let result = [];
-
-  function transverse(currentNode) {
-    result.push(currentNode.value);
-
-    if (currentNode.left) transverse(currentNode.left);
-    if (currentNode.right) transverse(currentNode.right);
-  }
-
-  transverse(this.root);
-}
-
-function BFS(root) {
-  let queue = [];
-  let result = [];
-
-  queue.push(root);
 
   while (queue.length) {
     let currentNode = queue.shift();
-    result.push(currentNode.value);
+    result.push(currentNode.val);
 
-    if (currentNode.right) queue.push(currentNode.right);
     if (currentNode.left) queue.push(currentNode.left);
+    if (currentNode.right) queue.push(currentNode.right);
   }
   return result;
 }
 
 function preorderDFSIterative(root) {
-  let stack = [];
   let result = [];
+  let stack = [root];
+
   while (stack.length) {
-    let currentNode = stack.shift();
-    result.push(currentNode.value);
+    let currentNode = stack.pop();
+    result.push(currentNode.val);
 
-    if (currentNode.left) stack.push(currentNode.left);
     if (currentNode.right) stack.push(currentNode.right);
+    if (currentNode.left) stack.push(currentNode.left);
   }
-}
 
-function dfsinorder() {
-  let result = [];
-
-  function recur(currentNode) {
-    if (currentNode.left) recur(currentNode.left);
-    result.push(currentNode.value);
-    if (currentNode.right) recur(currentNode.right);
-  }
-  transverse(this.root);
   return result;
 }
 
+function postorderDFSIterative(root) {
+  let result = [];
+  let stack = [root];
 
-function iterativeio(root){
-    let stack = []
-    let result = []
-    let currentNode = root
+  while (stack.length) {
+    let currentNode = stack.pop();
+    result.push(currentNode.val);
+    if (currentNode.left) stack.push(currentNode.left);
+    if (currentNode.right) stack.push(currentNode.right);
+  }
+  return result.reverse();
+}
 
-    while(currentNode || stack.length){
-        while(currentNode){
-            stack.push(currentNode)
-            currentNode= currentNode.keft
-        }
+function inorderDFSIterative(root) {
+  let result = [];
+  let stack = [];
+  let currentNode = root;
+
+  while (stack.length || currentNode) {
+    while (currentNode) {
+      result.push(currentNode);
+      currentNode = currentNode.left;
     }
 
+    currentNode = stack.pop();
+    result.push(currentNode.val);
+    currentNode = currentNode.right;
+  }
+  return result;
 }
