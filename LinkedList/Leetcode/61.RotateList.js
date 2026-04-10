@@ -8,43 +8,32 @@ Example 2:
 Input: head = [0,1,2], k = 4
 Output: [2,0,1]
 */
-
 var rotateRight = function (head, k) {
+  // edge cases
   if (!head) return head;
-  let count = 0;
-  let curr = head;
-  let prev = head;
 
-  //[1,2,3,4,5] k=2
-  //Step 1 of the algo, count list nodes
-  while (curr) {
-    count++; //Count will be 5
-    curr = curr.next;
+  // Step 1: Find Length and Tail
+  let length = 1;
+  let tail = head;
+  while (tail.next) {
+    tail = tail.next;
+    length++;
   }
 
-  //Ste 2: Number of rotations are now restricted within limit
-  curr = head;
-  k = k % count; // if 2 % 5 = 2rotatiosn needed.
+  // Step 2: Find remainder, eg if 11 % 2 = 1 (1 Position to move)
+  k = k % length;
+  if (k === 0) return head;
 
-  //Step 3: Moving curr pointer k positions ahead (Tail)
-  while (k--) {
-    curr = curr.next;
+  // Step 3: Find newTail (To determind the new end Position)
+  let newTail = head;
+  for (let i = 0; i < length - k - 1; i++) {
+    newTail = newTail.next;
   }
 
-  //Step 4: To move the nodes forward to the end. Since curr.next has been pushed in step3.
-  while (curr.next) {
-    //to make sure the next node is not empty
-    prev = prev.next;
-    curr = curr.next;
-  }
+  // Step 4:  Find the newHead
+  let newHead = newTail.next;
+  newTail.next = null; // Cut the newTail from the newHead
+  tail.next = head; // The old tail is at the end of the list (null) so attached it to head
 
-  //Step 5: Simply modifying the head and last node
-  curr.next = head; // Connect the old tail to the old head (LOOP) POINTS BACK TO 1
-  head = prev.next; // Update head to point to the new head
-  prev.next = null; // Disconnect the new tail from the new head
-  return head;
+  return newHead;
 };
-
-// Basically moves current first how many times ahead.
-// Create a prev pointer that loops to track the distance. PREV IS TAIL
-// CURR IS HED HEAD = PREV.NEXT TO BREAK THE LOOP
