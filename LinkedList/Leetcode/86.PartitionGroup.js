@@ -11,6 +11,8 @@ Output: [1,2,2,4,3,5]
 Example 2:
 Input: head = [2,1], x = 2
 Output: [1,2]
+
+MOVE all the numbers < than X to the left. The rest stays in position. EVEN IF the no is === X IT STAYS PUT
 */
 
 var partition = function (head, x) {
