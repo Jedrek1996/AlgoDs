@@ -60,3 +60,7 @@ let reverse = (list) => {
   }
   return prev;
 };
+
+/* [1,2] [5,4,3] 
+1,5,4,2,3
+*/

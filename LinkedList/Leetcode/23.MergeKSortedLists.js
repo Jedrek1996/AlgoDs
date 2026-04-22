@@ -34,18 +34,20 @@ Output: []
 
 */
 
-var mergeKLists = function (lists) {
-  if (lists.length === 0) return null;
-
-  while (lists.length > 1) {
-    a = lists.shift();
-    b = lists.shift();
-
-    let merged = mergeLists(a, b);
-    lists.push(merged);
-  }
-  return lists[0];
+var mergeKLists = function(lists) {
+    if (!lists.length) return null;
+    
+    while (lists.length > 1) {
+        const merged = [];
+        for (let i = 0; i < lists.length; i += 2) { // Add 2 array at a time
+            merged.push(mergeLists(lists[i], lists[i + 1] || null)); // Combine and push to the merged
+        }
+        lists = merged; // replace old lists with merged pairs
+    }
+    
+    return lists[0];
 };
+
 
 let mergeLists = (listA, listB) => {
   let dummy = new ListNode();
