@@ -14,21 +14,24 @@ Input: head = [1,1,1,2,3
 
 //[1, 2, 3, 3, 4, 4, 5]
 var deleteDuplicates = function (head) {
-  let curr = head; // Current node to check duplicates
-  let prev = null; // Previous node to link to unique values
+  const dummy = new ListNode(0, head); 
+  let prev = dummy; 
 
-  while (curr && curr.next) {
-    // If next node exists and values are the same, we found duplicates
-    if (curr.val === curr.next.val) {
-      while (curr && curr.next && curr.val === curr.next.val) {
-        curr = curr.next; // Skip duplicates
+  while (prev.next) {
+    let curr = prev.next; // curr = node we're currently checking
+
+    if (curr.next && curr.val === curr.next.val) {
+      // curr has a duplicate ahead
+      const dupVal = curr.val;
+
+      while (prev.next && prev.next.val === dupVal) {
+        // keep removing until dup run is gone
+        prev.next = prev.next.next; // unlink the duplicate node
       }
-      // Link prev to the next unique node (curr.next)
-      prev ? (prev.next = curr.next) : (head = curr.next); // 2 is set to prev before entering loop, 2 = 4
     } else {
-      prev = curr; // No duplicates found; move prev to curr
+      prev = prev.next; // no duplicate, curr is safe so move prev forward
     }
-    curr = curr.next; // Move to the next node
   }
-  return head; // Return the updated head
+
+  return dummy.next; // dummy.next is the new head (skips our fake node)
 };

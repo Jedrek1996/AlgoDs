@@ -19,38 +19,39 @@ Output: [1,5,2,4,3]
 
 var reorderList = function (head) {
   if (!head || !head.next) return;
-  let slowP = head;
-  let fastP = head;
 
-  while (fastP && fastP.next) {
-    slowP = slowP.next;
-    fastP = fastP.next.next;
+  // Step 1: Find middle
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
   }
 
-  let p1 = head;
-  let p2 = reverse(slowP.next);
-  slowP.next = null; //Cuts the list into half as we only reversed the second half EG. 1,2,3,6,5,4
+  // Step 2: Reverse second half
+  let first = head;
+  let second = reverse(slow.next);
+  slow.next = null; // cut list in half
 
-  // Cannot use p1 = p1.next and p2 = p2.next as it will override.
-  //[1,2,3] [6,5,4]
-  while (p1 && p2) {
-    let nextP1 = p1.next; // Save this 2 values to reset to point next
-    let nextP2 = p2.next; // 5
+  // Step 3: Merge alternately
+  while (second) {
+    let nextFirst = first.next;
+    let nextSecond = second.next;
 
-    p1.next = p2; // Link the current node from the first half to the second half
-    p2.next = nextP1; // Link the current node from the second half back to the first half
+    first.next = second;
+    second.next = nextFirst;
 
-    p1 = nextP1; // Move to the next node in the first half
-    p2 = nextP2; // Move to the next node in the second half
+    first = nextFirst;
+    second = nextSecond;
   }
 
-  return head; // Return the head of the reordered list
+  return head;
 };
 
-
-let reverse = (list) => {
-  let curr = list;
+var reverse = function (head) {
   let prev = null;
+  let curr = head;
 
   while (curr) {
     let next = curr.next;
