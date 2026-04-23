@@ -29,23 +29,35 @@ Explanation:
 There is only one node with a twin in the linked list having twin sum of 1 + 100000 = 100001.*/
 
 var pairSum = function (head) {
-  let arr = [];
-  let max = 0;
+  let slow = head;
+  let fast = head;
 
-  while (head) {
-    arr.push(head.val);
-    head = head.next;
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
   }
 
-  for (let i = 0; i < arr.length / 2; i++) {
-    let sum = arr[i] + arr[arr.length - i - 1];
-    max = Math.max(max, sum);
+  let max = 0;
+  let start = head;
+  let reversed = reverse(slow);
+
+  while (reversed) {
+    max = Math.max(max, start.val + reversed.val);
+    start = start.next;
+    reversed = reversed.next;
   }
   return max;
 };
-/*Eg. [1, 3, 5, 7, 9, 11] arr.length =6
-if i = 0,  sum = arr[0] + arr[6-1-0] <<1 + 11>> 
-if i = 1, sum = arr[1] + arr[6-1-1] <<3 + 9>>
-if i = 2, sum = arr[2] + arr[6-2-1] <<5 + 7>>
-*/
 
+function reverse(head) {
+  let prev = null;
+  let curr = head;
+
+  while (curr) {
+    let next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+  return prev;
+}

@@ -13,7 +13,37 @@ Example 2:
 Input: head = [1,2,3,4,5], k = 3
 Output: [3,2,1,4,5]
 */
+//Solution 1
+var reverseKGroup = function (head, k) {
+  // Check if there are at least k nodes remaining
+  let count = 0;
+  let node = head;
+  while (node && count < k) {
+    node = node.next;
+    count++;
+  }
 
+  // If fewer than k nodes remain, return head as-is
+  if (count < k) return head;
+
+  // Reverse k nodes
+  let prev = null;
+  let curr = head;
+  for (let i = 0; i < k; i++) {
+    let next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+
+  // head is now the tail of the reversed group
+  // Recursively reverse the rest and connect
+  head.next = reverseKGroup(curr, k);
+
+  return prev; // prev is now the new head of this group
+};
+
+//Solution 2
 var reverseKGroup = function (head, k) {
   let stack = [];
   let dummy = new ListNode(0);
