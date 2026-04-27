@@ -41,15 +41,24 @@ var LRUCache = function (capacity) {
   this.tail.prev = this.head; //head  ◀——prev——  tail
 };
 
+/*
+Before:  A.next = B
+After:   A.next = C 
+A's forward pointer should skip B and point to C instead.
+
+Before:  C.prev = B
+After:   C.prev = A
+C's backward pointer should skip B and point to A instead.
+*/
 LRUCache.prototype._remove = function (node) {
   node.prev.next = node.next;
   node.next.prev = node.prev;
 };
 
 LRUCache.prototype._insertFront = function (node) {
-  node.next = this.head.next;
+  node.next = this.head.next; 
   node.prev = this.head;
-  this.head.next.prev = node;
+  this.head.next.prev = node; // We onlty have the value for node and this.head. So this.head.next (Old head next pointer).prev 
   this.head.next = node;
 };
 
@@ -61,6 +70,7 @@ LRUCache.prototype.get = function (key) {
   return node.val;
 };
 
+// Replace old node with new value, if capacity exceeds remove last node.
 LRUCache.prototype.put = function (key, value) {
   if (this.map.has(key)) {
     this._remove(this.map.get(key));
