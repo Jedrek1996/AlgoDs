@@ -1,59 +1,17 @@
-function bfs(root) {
-  let queue = [root];
-  let result = [];
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function (capacity) {
+  this.capacity = capacity;
+  this.map = new Map();
 
-  while (queue.length) {
-    let currentNode = queue.shift();
-    result.push(currentNode.val);
+  this.head = { key: 0, value: 0, prev: null, next: null };
+  this.tail = { key: 0, value: 0, prev: null, next: null };
+  this.head.next = this.tail;
+  this.tail.next = this.head;
+};
 
-    if (currentNode.left) queue.push(currentNode.left);
-    if (currentNode.right) queue.push(currentNode.right);
-  }
-  return result;
-}
-
-function preorderDFSIterative(root) {
-  let result = [];
-  let stack = [root];
-
-  while (stack.length) {
-    let currentNode = stack.pop();
-    result.push(currentNode.val);
-
-    if (currentNode.right) stack.push(currentNode.right);
-    if (currentNode.left) stack.push(currentNode.left);
-  }
-
-  return result;
-}
-
-function postorderDFSIterative(root) {
-  let result = [];
-  let stack = [root];
-
-  while (stack.length) {
-    let currentNode = stack.pop();
-    result.push(currentNode.val);
-    if (currentNode.left) stack.push(currentNode.left);
-    if (currentNode.right) stack.push(currentNode.right);
-  }
-  return result.reverse();
-}
-
-function inorderDFSIterative(root) {
-  let result = [];
-  let stack = [];
-  let currentNode = root;
-
-  while (stack.length || currentNode) {
-    while (currentNode) {
-      result.push(currentNode);
-      currentNode = currentNode.left;
-    }
-
-    currentNode = stack.pop();
-    result.push(currentNode.val);
-    currentNode = currentNode.right;
-  }
-  return result;
-}
+LRUCache.prototype._remove = function (node) {
+  node.prev.next = node.next;
+  node.next.prev = node.prev;
+};
