@@ -44,4 +44,9 @@ Input: nums = [1]
 
 var singleNumber = function (nums) {
   return nums.reduce((acc, num) => acc ^ num, 0);
+//                    ^^^  ^^^                ^
+//                     |    |                 |
+//                     |    |                 initial value (starting acc)
+//                     |    current element from array
+//                     accumulator (running total)
 };
