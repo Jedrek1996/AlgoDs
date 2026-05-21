@@ -42,6 +42,11 @@ var copyRandomList = function (head) {
   // Step 2: Assign next and random pointers
   curr = head;
   while (curr) {
+    /*
+    map.get(A).next = map.get(A.next)
+     A'    .next =    map.get(B)
+     A'    .next =       B'   
+      */
     if (curr.next) map.get(curr).next = map.get(curr.next);
     if (curr.random) map.get(curr).random = map.get(curr.random);
     curr = curr.next;
