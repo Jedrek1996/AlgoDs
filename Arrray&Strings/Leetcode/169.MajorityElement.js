@@ -32,7 +32,7 @@ var majorityElement = function (nums) {
 
   for (let num of nums) {
     if (count === 0) {
-      candidate = num;
+      candidate = num; 
     }
     count += num === candidate ? 1 : -1;
   }
