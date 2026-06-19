@@ -9,7 +9,7 @@ Output: 2
 Example 2:
 Input: nums = [1,2,3], k = 3
 Output: 2
- 
+ How many times can the subarray of the array add up to k value.
 */
 
 var subarraySum = function (nums, k) {
