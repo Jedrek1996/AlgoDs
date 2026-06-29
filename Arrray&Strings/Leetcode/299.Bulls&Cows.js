@@ -18,28 +18,36 @@ Explanation: Bulls are connected with a '|' and cows are underlined:
 1 A 3 B = 
 1 = 1 Secret and 1 Guess matched in position (8 from the above)
 3 = 3 Similar digits out of the 4 but DIFFERENT postiions.
+
+Bulls = right digit, right position
+Cows = right digit, wrong position
+
+Need to know that the numbers given WILL only be eg. 12345, 33331 same amount of length but diff digits. Thus when it is not a bull we will ++
 */
 
-var getHint = function(secret, guess) {
-    let bulls = 0;
-    let cows = 0;
-    const count = new Array(10).fill(0);
+var getHint = function (secret, guess) {
+  let bulls = 0,
+    cows = 0;
+  const secretCount = new Array(10).fill(0);
+  const guessCount = new Array(10).fill(0);
 
-    for (let i = 0; i < secret.length; i++) {
-        if (secret[i] === guess[i]) {
-            bulls++;
-        } else {
-            //positive = seen in secret but unmatched
-            // thnegative = seen in guess but unmatched
-            // if secret digit was previously seen in guess → cow found
-            if (count[secret[i]] < 0) cows++;
-            // if guess digit was previously seen in secret → cow found
-            if (count[guess[i]] > 0) cows++;
-
-            count[secret[i]]++;  // track secret digits as positive
-            count[guess[i]]--;   // track guess digits as negative
-        }
+  // step 1: count bulls (exact matches)
+  // for non-matches, track how many times each digit appears unmatched
+  for (let i = 0; i < secret.length; i++) {
+    if (secret[i] === guess[i]) {
+      bulls++;
+    } else {
+      secretCount[secret[i]]++; // e.g. secretCount[1]++ means secret had an unmatched '1'
+      guessCount[guess[i]]++;
     }
+  }
 
-    return `${bulls}A${cows}B`;
+  // step 2: count cows
+  // for each digit 0-9, the number of cows is the overlap between secret and guess
+  // e.g. secret had 3 unmatched '1's, guess had 2 unmatched '1's → 2 cows for digit '1'
+  for (let i = 0; i < 10; i++) {
+    cow += Math.min(secretCount[i], guessCount[i]);
+  }
+
+  return `${bulls}A${cows}B`;
 };

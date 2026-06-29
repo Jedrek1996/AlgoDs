@@ -30,29 +30,24 @@ Loop right to left → highest frequency first, stop at k */
 var topKFrequent = function (nums, k) {
   // Step 1: count frequency of each number
   // {1:3, 2:2, 3:1}
-  let map = {};
-  for (let i = 0; i < nums.length; i++) {
-    if (!map[nums[i]]) {
-      map[nums[i]] = 1; // first time seeing it
-    } else {
-      map[nums[i]]++; // seen before, increment
+  var topKFrequent = function (nums, k) {
+    let map = new Map();
+    for (let num of nums) {
+      map.set(num, (map.get(num) ?? 0) + 1);
     }
-  }
 
-  // Step 2: put numbers into bucket at index = their frequency
-  // bucket[3] = [1], bucket[2] = [2], bucket[1] = [3]
-  let bucket = [];
-  for (let [num, freq] of Object.entries(map)) {
-    if (!bucket[freq]) bucket[freq] = []; // init if empty
-    bucket[freq].push(num); // push number at freq index
-  }
+    // Step 2: put numbers into bucket at index = their frequency
+    // bucket[3] = [1], bucket[2] = [2], bucket[1] = [3]
+    let bucket = new Array(nums.length + 1).fill(null).map(() => []);
+    for (let [num, count] of map) {
+      bucket[count].push(num);
+    }
 
-  // Step 3: walk right to left (highest freq first), stop at k
-  let result = [];
-  for (let i = bucket.length - 1; i >= 0; i--) {
-    if (bucket[i]) result.push(...bucket[i]); // skip empty slots
-    if (result.length === k) break; // stop when we have k
-  }
-
-  return result;
+    // Step 3: walk left to right lowest freq, stop at -k
+    let res = [];
+    for (let i = 0; i < bucket.length; i++) {
+      res.push(...bucket[i]);
+    }
+    return res.slice(-k);
+  };
 };
