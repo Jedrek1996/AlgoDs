@@ -19,35 +19,29 @@ Output: "abcabccdcdcdef
 */
 
 //3[a]2[bc] example
-const decodeString = (s) => {
-  const stack = [];
-
-  for (const char of s) {
-    if (char !== "]") {
-      stack.push(char); // push (3,[,a)
-    } else {
-      let str = "";
-      let num = "";
-      let cur = stack.pop();
-
-      while (cur !== "[") {
-        str = cur + str; // first loop a, goess in. Pop [ but nothing happens.
-        cur = stack.pop();
+/**
+ * @param {string} 
+ * @return {string}
+ */
+var decodeString = function (s) {
+  let stack = [];
+  for (let char of s) {
+    if (char !== "]") stack.push(char);
+    else {
+      let curr = stack.pop(),
+        num = "",
+        str = "";
+      while (curr !== "]") {
+        str = curr + str;
+        curr = stack.pop();
       }
-
-      cur = stack.pop(); // Now pop 3
-      /*
-      - Convert the string to no.
-      - Check if the converted number is empty? If not empty returns false.
-      - ! is the negate the false. so its true
-      */
-      while (!Number.isNaN(+cur)) {
-        num = cur + num; //This is to add other numbers eg. pop 2, 3..
-        cur = stack.pop();
+      curr = stack.pop(); // remove the [,  the above while loop stops looping at a string so the next val is [
+      while (Number.isNan(+curr)) { // after removing [ the next value is a no.
+        num = curr + num;
+        curr = stack.pop();
       }
-
-      stack.push(cur); //In some scenarios such as 1[2[ab]]
-      stack.push(str.repeat(+num)); // Str * num
+      stack.push(curr); // push back the previous pop eg. 12 then we pop not a digit next.
+      stack.push(str.repeat(+num));
     }
   }
   return stack.join("");
