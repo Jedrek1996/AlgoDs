@@ -37,15 +37,24 @@ var asteroidCollision = function (asteroids) {
     const last = res[res.length - 1];
     const cur = asteroids[i];
 
-    //If res.length is not null (first) || last is less than 0  << || curr more than 0 >>
-    //last M 0
+    /*
+    Example: asteroids = [-5, 3]
+
+i=0, cur = -5: stack is empty → push. Stack: [-5]
+i=1, cur = 3, prev = -5
+
+Check: cur > 0 → 3 > 0 → true → push, no collision check needed.
+
+Stack becomes [-5, 3].
+
+Why this makes sense physically: -5 is moving left (drifting away, further left, forever). 3 is moving right (drifting away, further right, forever). They start at the same "position" in the array sense but are already flying apart in opposite directions — one goes left, one goes right. They can never hit each other. So no collision, just push.
+    */
     if (!res.length || last < 0 || cur > 0) {
       res.push(cur);
     } else if (-cur == last) {
-      // -(-5) = 5 == 10? do not pop
-      res.pop();
+      res.pop(); // Same value, collision pop the last stack value and dont push the curr
     } else if (-cur > last) {
-      // -(-5) = 5 > 10? fasle do not pop 10. but -5 is gone
+      // curr is bigger than last.
       res.pop();
       i--; //Since the -negative asteriod is not destroyed it will loop through the entire stack each time
     }
