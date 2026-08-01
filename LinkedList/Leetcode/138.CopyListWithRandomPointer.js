@@ -30,23 +30,19 @@ var copyRandomList = function (head) {
   if (!head) return null;
 
   // Map from original node -> its copy
+  //basically duplicate the list entirely firsts then map it.
   const map = new Map();
 
-  // Step 1: Create all copy nodes
+  // STEP 1: duplicate every node first (no arrows yet)
   let curr = head;
   while (curr) {
-    map.set(curr, new Node(curr.val)); //
+    map.set(curr, new Node(curr.val)); // just create the copy, arrows are null for now (key = the original node, value = its new copy.)
     curr = curr.next;
   }
 
-  // Step 2: Assign next and random pointers
-  curr = head;
+  // STEP 2: now go back and wire up the arrows on the copies
+  curr = head; // reset curr to oriignal head
   while (curr) {
-    /*
-    map.get(A).next = map.get(A.next)
-     A'    .next =    map.get(B)
-     A'    .next =       B'   
-      */
     if (curr.next) map.get(curr).next = map.get(curr.next);
     if (curr.random) map.get(curr).random = map.get(curr.random);
     curr = curr.next;
@@ -55,9 +51,15 @@ var copyRandomList = function (head) {
   return map.get(head);
 };
 
-/*The Node class is defined by LeetCode behind the scenes, it looks like this:
-function Node(val, next, random) {
-    this.val = val;
-    this.next = next === undefined ? null : next;
-    this.random = random === undefined ? null : random;
-}*/
+
+/*if (curr.next)
+→ "Is there a next node? If not, skip, nothing to do."
+
+map.get(curr)
+→ "Get me the copy of the node I'm on right now."
+
+map.get(curr).next = ...
+→ "I'm about to set that copy's .next pointer."
+
+map.get(curr.next)
+→ "Get me the copy of whatever com */

@@ -33,9 +33,8 @@ var isValidSudoku = function (board) {
 
       const boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3); //Index within a specific box
 
-      if (rows[r].has(val) || cols[c].has(val) || boxes[boxIndex].has(val)) {
-        return false;
-      }
+      if (rows[r].has(val) || cols[c].has(val) || boxes[boxIndex].has(val))
+        return false; // Check if the val exist if exist not valid.
 
       rows[r].add(val);
       cols[c].add(val);

@@ -52,6 +52,11 @@ var calculate = function (s) {
         num = 12 * 10 + 3     <-- num is now 12!
         num = 120 + 3
 */
+    } else if (char === "(") {
+      stack.push(res); // save res so far
+      stack.push(sign); // save sign before this '('
+      res = 0; // start fresh inside parens
+      sign = 1;
     } else if (char === "+") {
       res += sign * num; // apply pending number with its sign
       num = 0;
@@ -60,11 +65,6 @@ var calculate = function (s) {
       res += sign * num; // apply pending number
       num = 0;
       sign = -1; // next number will be subtracted
-    } else if (char === "(") {
-      stack.push(res); // save res so far
-      stack.push(sign); // save sign before this '('
-      res = 0; // start fresh inside parens
-      sign = 1;
     } else if (char === ")") {
       res += sign * num; // finish last number inside parens
       num = 0;
