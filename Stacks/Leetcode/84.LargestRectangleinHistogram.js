@@ -21,9 +21,10 @@ var largestRectangleArea = function (heights) {
 
   for (let i = 0; i < heights.length; i++) {
     // Process until we find a shorter bar or the stack is empty
-    while (stack.length > 0 && heights[i] < heights[stack[stack.length - 1]]) {
+    while (stack.length && heights[i] < heights[stack[stack.length - 1]]) {
+      // if the current height is lesser than the one on top of the stack
       let height = heights[stack.pop()]; // Pop the top of the stack (tallest bar)
-      let width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1; // Width is determined by the distance between bars
+      let width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1; // i - (newly exposed top) Width is determined by the distance between bars
       max = Math.max(max, height * width); // Calculate and update the maximum area
     }
     stack.push(i); // Push the current bar's index onto the stack
