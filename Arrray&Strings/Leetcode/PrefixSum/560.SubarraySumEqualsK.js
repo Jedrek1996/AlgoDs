@@ -32,3 +32,7 @@ var subarraySum = function (nums, k) {
 
   return count;
 };
+/* Store the prefix value in the map and move on
+  if the new prefix -k has the stored prefix value in the map count ++
+
+*/

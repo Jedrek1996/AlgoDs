@@ -21,58 +21,28 @@ Output: 23 */
  * @return {number}
  */
 var calculate = function (s) {
-  let res = 0; // running total
-  let num = 0; // current number being built
-  let sign = 1; // +1 or -1 for the next number
-  let stack = []; // holds [res, sign] pairs before each '('
+    let res = 0;              // running total
+    let num = 0;               // number currently being built from digits
+    let sign = 1;               // sign to apply to the *next* number
+    const stack = [1];          // stack of sign-contexts; top = multiplier for current paren level
 
-  for (let i = 0; i < s.length; i++) {
-    let char = s[i];
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
 
-    if (char >= "0" && char <= "9") {
-      num = num * 10 + Number(char);
-      /*
-       build multi-digit number. Eg. "123" it loops through each value eg. 
-       num = 123;
-
-        i=0, char='1':
-        num = num * 10 + Number(char)
-        num = 0 * 10 + 1
-        num = 0 + 1
-        num = 1
-
-        i=1, char='2':
-        num = num * 10 + Number(char)
-        num = 1 * 10 + 2      <-- num is now 1, not 0!
-        num = 10 + 2
-        num = 12
-
-        i=2, char='3':
-        num = num * 10 + Number(char)
-        num = 12 * 10 + 3     <-- num is now 12!
-        num = 120 + 3
-*/
-    } else if (char === "(") {
-      stack.push(res); // save res so far
-      stack.push(sign); // save sign before this '('
-      res = 0; // start fresh inside parens
-      sign = 1;
-    } else if (char === "+") {
-      res += sign * num; // apply pending number with its sign
-      num = 0;
-      sign = 1; // next number will be added
-    } else if (char === "-") {
-      res += sign * num; // apply pending number
-      num = 0;
-      sign = -1; // next number will be subtracted
-    } else if (char === ")") {
-      res += sign * num; // finish last number inside parens
-      num = 0;
-      res *= stack.pop(); // multiply by sign that was before '('
-      res += stack.pop(); // add back the saved outer res
+        if (c >= '0' && c <= '9') {
+            num = num * 10 + (c - '0');       // build multi-digit number one char at a time
+        } else if (c === '+' || c === '-') {
+            res += sign * num;                 // commit the number we just finished building
+            num = 0;                            // reset for the next number
+            // new sign = current paren-context sign * (+1 or -1 from this operator)
+            sign = stack[stack.length - 1] * (c === '+' ? 1 : -1);
+        } else if (c === '(') {
+            stack.push(sign);                  // remember sign context we're entering
+        } else if (c === ')') {
+            stack.pop();                       // done with that context, discard it
+        }
+        // spaces: no branch matches, just skip
     }
-    // spaces are ignored (no matching if, falls through)
-  }
 
-  return res + sign * num; // add any trailing number
+    return res + sign * num;   // flush the last number (never hit an operator/paren after it)
 };
