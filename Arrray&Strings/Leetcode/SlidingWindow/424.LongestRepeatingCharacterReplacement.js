@@ -29,7 +29,8 @@ var characterReplacement = function (s, k) {
 
     // window size = (right - left + 1). If (window size - maxFreq) > k,
     // that means more than k chars would need replacing to make the whole window one repeated char — invalid window
-    while (right - left + 1 - maxFreq > k) { // right - left + 1 current window size,  how many characters in the window are NOT that majority character. basically over here we are finding how much more we need to be more than k. Once below k stop looping
+    while (right - left + 1 - maxFreq > k) {
+      // right - left + 1 current window size,  how many characters in the window are NOT that majority character. basically over here we are finding how much more we need to be more than k. Once below k stop looping
       freqs[s[left]] -= 1; //s[left] = the character currently sitting at the left edge of the window, remvoe the count since it is leaving
       left++; // shrink window from the left
     }

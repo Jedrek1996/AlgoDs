@@ -83,3 +83,35 @@ function isEqual(obj1, obj2) {
 /*t the idea is we first map out the "recipe" if it is equal we return early.
 
 else we go into sliding window whereby we start from where we left off during the first loop. in the next loop we move our sldiing window right and left -1, then check if it is equal if it is equal return true */
+
+var checkInclusion = function (s1, s2) {
+  if (s1.length > s2.length) return false;
+
+  let s1Count = {},
+    s2Count = {},
+    left = 0;
+
+  for (let i = 0; i < s1.length; i++) {
+    s1Count[s1[i]] = (s1Count[s1[i]] ?? 0) + 1;
+    s2Count[s2[i]] = (s2Count[s2[i]] ?? 0) + 1;
+  }
+
+  if (isEqual(s1Count, s2Count)) return true;
+
+  for (let right = s1.length; right < s2.length; right++) {
+    s2Count[s2[right]] = (s2Count[s2[right]] ?? 0) + 1;
+    s2Count[s2[left]]--;
+    if (s2Count[s2[left]] === 0) delete s2Count[s2[left]];
+    left++;
+    if (isEqual(s1Count, s2Count)) return true;
+  }
+  return false;
+};
+
+function isEqual(obj1, obj2) {
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) return false; 
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) return false;
+  }
+  return true;
+}
