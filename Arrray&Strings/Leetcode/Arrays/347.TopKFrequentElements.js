@@ -27,6 +27,8 @@ So yes, the 3 steps are:
 Map → count frequencies
 Bucket → flip key/value, index = frequency
 Loop right to left → highest frequency first, stop at k */
+// Time Complexity: O(n) — count frequencies then bucket sort by count
+// Space Complexity: O(n) — frequency map and buckets sized to input length
 var topKFrequent = function (nums, k) {
   // Step 1: count frequency of each number
   // {1:3, 2:2, 3:1}

@@ -23,6 +23,8 @@ Input: s = "([])"
 Output: true
 */
 
+// Time Complexity: O(n) — single pass over the string
+// Space Complexity: O(n) — stack holds up to n unmatched brackets
 var isValid = function (s) {
   const stack = [];
 
@@ -47,6 +49,8 @@ var isValid = function (s) {
   return stack.length === 0;
 };
 
+// Time Complexity: O(n) — single pass over the string
+// Space Complexity: O(n) — stack holds up to n unmatched brackets
 var isValid = function (s) {
   let stack = [];
 

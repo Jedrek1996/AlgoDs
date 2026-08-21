@@ -21,6 +21,8 @@ Output: [1]
 */
 
 //Iterative
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds pending ancestors, worst case O(n) if unbalanced
 var postorderTraversal = function (root) {
   if (!root) return [];
 
@@ -38,6 +40,8 @@ var postorderTraversal = function (root) {
 };
 
 //Recursive
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 var postorderTraversal = function (root) {
   if (!root) return [];
   let result = [];

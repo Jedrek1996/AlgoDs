@@ -36,6 +36,8 @@ class MyStack {
     this.q = [];
   }
 
+  // Time Complexity: O(n) — rotates the whole queue so the new item ends up at the front
+  // Space Complexity: O(1) — reuses the same queue, no extra structures
   push(x) {
     this.q.push(x);
     for (let i = 0; i < this.q.length - 1; i++) {
@@ -43,14 +45,20 @@ class MyStack {
     }
   }
 
+  // Time Complexity: O(1) — removes the front element directly
+  // Space Complexity: O(1) — no extra structures used
   pop() {
     return this.q.shift();
   }
 
+  // Time Complexity: O(1) — reads the front element directly
+  // Space Complexity: O(1) — no extra structures used
   top() {
     return this.q[0];
   }
 
+  // Time Complexity: O(1) — checks the queue length
+  // Space Complexity: O(1) — no extra structures used
   empty() {
     return this.q.length === 0;
   }

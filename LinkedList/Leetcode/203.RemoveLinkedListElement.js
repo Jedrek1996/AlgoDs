@@ -22,6 +22,8 @@ Output: []
  */
 
 //Will need to create a new node as the first node might be removed.
+// Time Complexity: O(n) — single pass through the list
+// Space Complexity: O(1) — dummy node and one pointer only
 let removeElements = function (head, val) {
   let dummy = new ListNode(0, head);
   let curr = dummy;

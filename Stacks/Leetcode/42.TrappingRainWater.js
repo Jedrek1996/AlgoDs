@@ -12,6 +12,8 @@ Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
 Output: 6
 Explanation: The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.*/
 
+// Time Complexity: O(n) — two pointers each traverse the array once
+// Space Complexity: O(1) — only a few pointers/max trackers used
 var trap = function (height) {
   let left = 0;
   let right = height.length - 1;

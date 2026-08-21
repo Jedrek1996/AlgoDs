@@ -11,6 +11,8 @@ Input: head = [1,2]
 Output: false
 */
 
+// Time Complexity: O(n) — reverses every node's pointer once
+// Space Complexity: O(1) — only prev/curr/next pointers used
 function reverse(head) {
   let prev = null;
   let curr = head;
@@ -24,6 +26,8 @@ function reverse(head) {
   return prev;
 }
 
+// Time Complexity: O(n) — finds middle, reverses half, then compares pairs
+// Space Complexity: O(1) — reverses second half in place, no extra storage
 var isPalindrome = function (head) {
   let slow = head;
   let fast = head;

@@ -20,6 +20,8 @@ multiply together:
 [1×24, 1×12, 2×4, 6×1]
 = [24,  12,   8,   6]  ✓
 */
+// Time Complexity: O(n) — one left pass and one right pass over nums
+// Space Complexity: O(1) — no extra arrays beyond the required output
 var productExceptSelf = function (nums) {
   let res = [];
   let start = 1;

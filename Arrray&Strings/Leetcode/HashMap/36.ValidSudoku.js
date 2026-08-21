@@ -21,6 +21,8 @@ Input: board =
 ,[".",".",".",".","8",".",".","7","9"]]
 Output: true
 */
+// Time Complexity: O(1) — board is a fixed 9x9 grid, work is constant
+// Space Complexity: O(1) — row/col/box sets bounded by the fixed 9x9 size
 var isValidSudoku = function (board) {
   const rows = Array.from({ length: 9 }, () => new Set());
   const cols = Array.from({ length: 9 }, () => new Set());

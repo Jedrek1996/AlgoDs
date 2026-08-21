@@ -6,6 +6,8 @@ List B: 5 -> 6 -> 1 -> 8 -> 4 -> 5
 B will then 
 */
 
+// Time Complexity: O(n + m) — each pointer traverses both lists once
+// Space Complexity: O(1) — only two pointers used, no extra storage
 var getIntersectionNode = function (headA, headB) {
   let a = headA;
   let b = headB;

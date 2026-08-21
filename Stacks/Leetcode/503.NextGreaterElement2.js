@@ -15,6 +15,8 @@ The second 1's next greater number needs to search circularly, which is also 2.
 Lap 1 = compare + add people. Lap 2 = same comparing, but stop adding — just give leftover people from lap 1 a second chance to find a bigger match, using the array from the start again.
 */
 
+// Time Complexity: O(n) — two passes over nums, each index pushed/popped once
+// Space Complexity: O(n) — result array and stack sized to nums
 var nextGreaterElements = function (nums) {
   const n = nums.length;
   const res = Array(n).fill(-1);

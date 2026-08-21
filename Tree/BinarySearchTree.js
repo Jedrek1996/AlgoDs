@@ -11,6 +11,8 @@ class BST {
     this.root = null;
   }
 
+  // Time Complexity: O(h) — h = tree height, worst case O(n) if unbalanced
+  // Space Complexity: O(1) — iterative walk, only pointers used, no extra storage
   insert(value) {
     const newNode = new Node(value);
 
@@ -40,6 +42,8 @@ class BST {
     }
   }
 
+  // Time Complexity: O(h) — h = tree height, worst case O(n) if unbalanced
+  // Space Complexity: O(1) — iterative walk, only pointers used, no extra storage
   contains(value) {
     if (this.root === null) return false;
 

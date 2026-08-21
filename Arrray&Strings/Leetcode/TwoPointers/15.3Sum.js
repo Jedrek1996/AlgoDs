@@ -23,6 +23,8 @@ Output: [[0,0,0]]
 Explanation: The only possible triplet sums up to 0.
   */
 
+// Time Complexity: O(n^2) — sort is O(n log n), nested i and two-pointer loops dominate
+// Space Complexity: O(n) — output array of triplets (sort is in-place)
 var threeSum = function (nums) {
   if (nums.length < 3) return [];
 
@@ -77,8 +79,10 @@ var threeSum = function (nums) {
 
 // Without comments ⚠️
 
+// Time Complexity: O(n^2) — sort is O(n log n), nested i and two-pointer loops dominate
+// Space Complexity: O(n) — output array of triplets (sort is in-place)
 var threeSum = function (nums) {
-  if(nums.length < 3) return []  
+  if(nums.length < 3) return []
   const result = [];
 
   nums.sort((a, b) => a - b);

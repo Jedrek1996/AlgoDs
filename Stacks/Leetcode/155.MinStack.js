@@ -37,6 +37,8 @@ Example structure
 
 */
 
+// Time Complexity: O(1) — just initializes an empty array
+// Space Complexity: O(1) — no elements stored yet
 var MinStack = function () {
   this.stack = []; //💡💡
 };
@@ -45,6 +47,8 @@ var MinStack = function () {
  * @param {number} val
  * @return {void}
  */
+// Time Complexity: O(1) — compares against last stored min and pushes
+// Space Complexity: O(1) — adds one object to the underlying array
 MinStack.prototype.push = function (min) {
   //💡💡
   this.stack.push({
@@ -56,6 +60,8 @@ MinStack.prototype.push = function (min) {
 /**
  * @return {void}
  */
+// Time Complexity: O(1) — removes the last element from the array
+// Space Complexity: O(1) — no extra space used
 MinStack.prototype.pop = function () {
   this.stack.pop(); //💡💡
 };
@@ -63,6 +69,8 @@ MinStack.prototype.pop = function () {
 /**
  * @return {number}
  */
+// Time Complexity: O(1) — reads the last element's value
+// Space Complexity: O(1) — no extra space used
 MinStack.prototype.top = function () {
   return this.stack[this.stack.length - 1].value; //💡💡
 };
@@ -70,6 +78,8 @@ MinStack.prototype.top = function () {
 /**
  * @return {number}
  */
+// Time Complexity: O(1) — min is precomputed and stored per stack entry
+// Space Complexity: O(1) — no extra space used
 MinStack.prototype.getMin = function () {
   return this.stack[this.stack.length - 1].min; //💡💡 Since the min value is always calculated on push we can just retrieve the obj value
 };

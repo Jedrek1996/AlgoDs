@@ -40,6 +40,8 @@ class MyCircularDeque {
         this.maxLength = k;
     }
 
+    // Time Complexity: O(n) — array unshift re-indexes every existing element
+    // Space Complexity: O(1) — no extra structures allocated
     insertFront(value) {
         if (this.dq.length < this.maxLength) {
             this.dq.unshift(value);
@@ -48,6 +50,8 @@ class MyCircularDeque {
         return false;
     }
 
+    // Time Complexity: O(1) — push appends at the end, amortized constant time
+    // Space Complexity: O(1) — no extra structures allocated
     insertLast(value) {
         if (this.dq.length < this.maxLength) {
             this.dq.push(value);
@@ -56,6 +60,8 @@ class MyCircularDeque {
         return false;
     }
 
+    // Time Complexity: O(n) — array shift re-indexes every remaining element
+    // Space Complexity: O(1) — no extra structures allocated
     deleteFront() {
         if (this.dq.length > 0) {
             this.dq.shift();
@@ -64,6 +70,8 @@ class MyCircularDeque {
         return false;
     }
 
+    // Time Complexity: O(1) — pop removes directly from the end
+    // Space Complexity: O(1) — no extra structures allocated
     deleteLast() {
         if (this.dq.length > 0) {
             this.dq.pop();
@@ -72,18 +80,26 @@ class MyCircularDeque {
         return false;
     }
 
+    // Time Complexity: O(1) — reads the first array element directly
+    // Space Complexity: O(1) — no extra structures used
     getFront() {
         return this.dq.length > 0 ? this.dq[0] : -1;
     }
 
+    // Time Complexity: O(1) — reads the last array element directly
+    // Space Complexity: O(1) — no extra structures used
     getRear() {
         return this.dq.length > 0 ? this.dq[this.dq.length - 1] : -1;
     }
 
+    // Time Complexity: O(1) — checks the array length
+    // Space Complexity: O(1) — no extra structures used
     isEmpty() {
         return this.dq.length === 0;
     }
 
+    // Time Complexity: O(1) — compares array length to maxLength
+    // Space Complexity: O(1) — no extra structures used
     isFull() {
         return this.dq.length === this.maxLength;
     }

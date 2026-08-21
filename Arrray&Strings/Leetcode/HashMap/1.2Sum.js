@@ -15,6 +15,8 @@ Input: nums = [3,2,4], target = 6
 Output: [1,2]
 */
 
+// Time Complexity: O(n) — single pass with map lookups per element
+// Space Complexity: O(n) — map stores up to n seen numbers
 var twoSum = function(nums, target) {
     const map = new Map()  // { number: index } of everything seen so far
 

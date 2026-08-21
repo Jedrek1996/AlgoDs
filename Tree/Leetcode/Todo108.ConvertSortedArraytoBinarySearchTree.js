@@ -50,6 +50,8 @@ This structure keeps the tree balanced as required.
 ======================
 */
 
+// Time Complexity: O(n) — creates exactly one tree node per array element
+// Space Complexity: O(log n) — recursion stack, since the built tree is always balanced
 var sortedArrayToBST = function(nums) {
     // Helper function to construct the BST
     function convert(left, right) {

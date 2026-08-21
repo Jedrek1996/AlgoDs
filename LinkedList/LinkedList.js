@@ -14,6 +14,8 @@ class LinkedList {
   }
 
   //Add a value ✨
+  // Time Complexity: O(1) — appends directly using the tracked tail pointer
+  // Space Complexity: O(1) — creates a single new node
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -29,6 +31,8 @@ class LinkedList {
   }
 
   //Remove the last value ✨
+  // Time Complexity: O(n) — must walk to the second-to-last node (no prev pointer)
+  // Space Complexity: O(1) — only temp/pre pointers used
   pop() {
     if (!this.head) return undefined;
     let temp = this.head;
@@ -52,6 +56,8 @@ class LinkedList {
   }
 
   //Add to the front ✨
+  // Time Complexity: O(1) — new node just replaces the head pointer
+  // Space Complexity: O(1) — creates a single new node
   unshift(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -66,6 +72,8 @@ class LinkedList {
   }
 
   //Remove from the front ✨
+  // Time Complexity: O(1) — head pointer simply advances to the next node
+  // Space Complexity: O(1) — no extra allocation
   shift() {
     if (!this.head) {
       return undefined;
@@ -82,6 +90,8 @@ class LinkedList {
 
   //Get node at a specific index ✨
   //[ 5, 6, 7, 8] If index is 2 it will stop at 6 and return 7. 5 is position 0
+  // Time Complexity: O(n) — walks from head up to the target index
+  // Space Complexity: O(1) — only a temp pointer and loop counter
   get(index) {
     if (index < 0 || index >= this.length) {
       return undefined;
@@ -94,6 +104,8 @@ class LinkedList {
   }
 
   //Use get and set the current value
+  // Time Complexity: O(n) — delegates to get(), which walks the list
+  // Space Complexity: O(1) — no extra allocation
   set(index, value) {
     let temp = this.get(index);
     if (temp) {
@@ -103,6 +115,8 @@ class LinkedList {
     return false;
   }
 
+  // Time Complexity: O(n) — calls get() to find the node before the index
+  // Space Complexity: O(1) — creates a single new node
   insert(index, value) {
     if (index === 0) return this.unshift(value);
     if (index === this.length) return this.push(value);
@@ -117,6 +131,8 @@ class LinkedList {
     return true;
   }
 
+  // Time Complexity: O(n) — calls get() to find the node before the index
+  // Space Complexity: O(1) — no extra allocation, just pointer updates
   remove(index) {
     if (index === 0) return this.shift();
     if (index === this.length - 1) return this.pop();
@@ -132,6 +148,8 @@ class LinkedList {
     return temp;
   }
 
+  // Time Complexity: O(n) — visits every node once to flip its next pointer
+  // Space Complexity: O(1) — only prev/next pointers used
   reverse() {
     // let temp = this.head;
     // this.head = this.tail;

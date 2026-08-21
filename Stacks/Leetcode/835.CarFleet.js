@@ -21,6 +21,8 @@ Output: 1
 Explanation:
 There is only one car, hence there is only one fleet.
  */
+// Time Complexity: O(n log n) — dominated by sorting cars by position
+// Space Complexity: O(n) — cars array pairs each position with its speed
 var carFleet = function (target, position, speed) {
   const n = position.length;
   let fleets = 0;

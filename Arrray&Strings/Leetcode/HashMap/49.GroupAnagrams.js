@@ -13,6 +13,8 @@ The strings "nat" and "tan" are anagrams as they can be rearranged to form each 
 The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
 */
 
+// Time Complexity: O(n * k log k) — sorting each of n strings of length k
+// Space Complexity: O(n * k) — map stores every string grouped by key
 var groupAnagrams = function (strs) {
   let map = new Map();
 

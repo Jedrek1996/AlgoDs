@@ -22,6 +22,8 @@ Constraints:
 s and t consist of lowercase English letters.
   */
 
+// Time Complexity: O(n) — one pass to build counts, one to consume them
+// Space Complexity: O(1) — counts bounded by 26 lowercase letters
 var isAnagram = function(s, t) {
     if (s.length !== t.length) return false;
     

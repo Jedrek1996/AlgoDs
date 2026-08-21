@@ -13,6 +13,8 @@ Output: [0,1,2]
 
  */
 
+// Time Complexity: O(n) — Dutch national flag, single pass with three pointers
+// Space Complexity: O(1) — sorted in-place with swaps
 var sortColors = function(nums) {
     let low = 0
     let mid = 0

@@ -17,6 +17,8 @@ Example 3:
 
 Input: nums = [], target = 0
 Output: [-1,-1] */
+// Time Complexity: O(log n) — two binary searches over nums locate both bounds
+// Space Complexity: O(1) — only scalar variables besides the fixed-size result array
 var searchRange = function (nums, target) {
   const findBound = (isFirst) => {
     let left = 0,

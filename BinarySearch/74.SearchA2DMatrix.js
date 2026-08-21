@@ -18,6 +18,8 @@ Output: false
  
 */
 
+// Time Complexity: O(log(m*n)) — binary search over the matrix treated as a flat array
+// Space Complexity: O(1) — only index variables used, no extra memory allocated
 var searchMatrix = function (matrix, target) {
   const m = matrix.length, // rows
     n = matrix[0].length; // column

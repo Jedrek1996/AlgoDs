@@ -52,6 +52,8 @@ Repeat until right reaches the end of s.
 It's like slowly closing a bag around exactly the ingredients you need — as tight as it will go without spilling anything out. */
 
 // No comment
+// Time Complexity: O(n + m) — right/left pointers each scan s once; m to build map from t
+// Space Complexity: O(m) — map stores counts for distinct characters in t
 var minWindow = function (s, t) {
   let map = new Map();
 

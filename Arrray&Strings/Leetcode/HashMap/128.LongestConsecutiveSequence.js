@@ -18,6 +18,8 @@ Input: nums = [1,0,1,2]
 Output: 3
  */
 
+// Time Complexity: O(n) — each number is visited once across all sequences
+// Space Complexity: O(n) — Set stores every unique number from nums
 var longestConsecutive = function (nums) {
   // Step 1: Load all nums into a Set for O(1) lookups and auto-deduplication
   const set = new Set(nums);
@@ -45,6 +47,8 @@ var longestConsecutive = function (nums) {
 };
 
 //No comments
+// Time Complexity: O(n) — each number is visited once across all sequences
+// Space Complexity: O(n) — Set stores every unique number from nums
 var longestConsecutive = function(nums) {
     const set = new Set(nums);
     let count = 0;

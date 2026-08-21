@@ -14,6 +14,8 @@ Example 3:
 Input: nums = [3,3,3,3,3]
 Output: 3*/
 
+// Time Complexity: O(n) — Floyd's cycle detection with two pointers
+// Space Complexity: O(1) — only slow and fast pointer variables used
 var findDuplicate = function(nums) {
     let slow = nums[0];
     let fast = nums[0];

@@ -18,6 +18,8 @@ Input: list1 = [], list2 = [0]
 Output: [0]
 */
 
+// Time Complexity: O(n + m) — merges both lists in one pass
+// Space Complexity: O(1) — reuses existing nodes, only dummy pointer added
 var mergeTwoLists = function (list1, list2) {
   let dummy = new ListNode();
   let start = dummy;

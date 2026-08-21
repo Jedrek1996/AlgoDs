@@ -26,6 +26,8 @@ i=4, nums=1 → count += 1 → count = 1 → map has 1? YES → i - map.get(1) =
 i=5, nums=1 → count += 1 → count = 2 → map has 2? No → map.set(2, 5)
 */
 
+// Time Complexity: O(n) — single pass tracking running count in a map
+// Space Complexity: O(n) — map stores a running count per index seen
 var contiguousArray = function (nums) {
   let map = new Map(), count = 0, max = 0;
   map.set(0, -1); // pretend count=0 happened at index -1

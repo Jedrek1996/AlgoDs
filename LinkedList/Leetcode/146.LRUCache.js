@@ -50,11 +50,15 @@ Before:  C.prev = B
 After:   C.prev = A
 C's backward pointer should skip B and point to A instead.
 */
+// Time Complexity: O(1) — unlinks node using its prev/next pointers directly
+// Space Complexity: O(1) — no extra structures used
 LRUCache.prototype._remove = function (node) {
   node.prev.next = node.next;
   node.next.prev = node.prev;
 };
 
+// Time Complexity: O(1) — inserts node right after the head sentinel
+// Space Complexity: O(1) — no extra structures used
 LRUCache.prototype._insertFront = function (node) {
   node.next = this.head.next; 
   node.prev = this.head;
@@ -62,6 +66,8 @@ LRUCache.prototype._insertFront = function (node) {
   this.head.next = node;
 };
 
+// Time Complexity: O(1) — map lookup plus O(1) list reinsertion
+// Space Complexity: O(1) — no extra allocation per call
 LRUCache.prototype.get = function (key) {
   if (!this.map.has(key)) return -1;
   const node = this.map.get(key);
@@ -71,6 +77,8 @@ LRUCache.prototype.get = function (key) {
 };
 
 // Replace old node with new value, if capacity exceeds remove last node.
+// Time Complexity: O(1) — map lookup/insert plus O(1) list operations
+// Space Complexity: O(1) — one node added per call, no extra allocation
 LRUCache.prototype.put = function (key, value) {
   if (this.map.has(key)) {
     this._remove(this.map.get(key));

@@ -29,6 +29,8 @@ that chunk is just [5] sitting in the middle of the array
 JUST CHECK HOW MANY TIMES THE REMAINDER APPEAR THATS IT.
 */
 
+// Time Complexity: O(n) — single pass computing a running remainder
+// Space Complexity: O(k) — map holds at most k distinct remainders
 var subarraysDivByK = function (nums, k) {
   const map = new Map();
   // remainder 0 has occurred once (empty subarray before index 0)

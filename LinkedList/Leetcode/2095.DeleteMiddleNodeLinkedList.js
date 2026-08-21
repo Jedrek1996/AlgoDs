@@ -25,6 +25,8 @@ The above figure represents the given linked list.
 For n = 2, node 1 with value 1 is the middle node, which is marked in red.
 Node 0 with value 2 is the only node remaining after removing node 1.
 */
+// Time Complexity: O(n) — fast/slow pointer single pass
+// Space Complexity: O(1) — few pointer variables only
 var deleteMiddle = function (head) {
   if (!head || !head.next) {
     return null;

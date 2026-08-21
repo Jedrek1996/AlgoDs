@@ -16,6 +16,8 @@ Input: x = 8
 Output: 2
 Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned. */
 
+// Time Complexity: O(log x) — binary search over the range [1, x] for the root
+// Space Complexity: O(1) — only a few numeric variables used, no extra memory
 var mySqrt = function (x) {
   if (x < 2) return x;
 

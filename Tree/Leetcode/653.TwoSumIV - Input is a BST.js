@@ -11,6 +11,8 @@ Input: root = [5,3,6,2,4,null,7], k = 28
 Output: false
 */
 
+// Time Complexity: O(n) — visits every node once with O(1) set lookups
+// Space Complexity: O(n) — set stores up to n visited values
 var findTarget = function (root, k) {
   if (!root) return false;
 

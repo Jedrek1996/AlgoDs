@@ -11,6 +11,8 @@ Example 2:
 Input: nums = [0]
 Output: [0]
   */
+// Time Complexity: O(n) — single pass swapping non-zero elements forward
+// Space Complexity: O(1) — sorted in-place, no extra array
 var moveZeroes = function (nums) {
   let left = 0;
 

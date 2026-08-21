@@ -16,6 +16,8 @@ Example 2:
 Input: s = "a)b(c)d"
 Output: "ab(c)d" */
 
+// Time Complexity: O(n) — two linear passes over the string/array
+// Space Complexity: O(n) — split array plus a stack of open-paren indices
 var minRemoveToMakeValid = function (s) {
   let s = s.split(""); // splits into an array
   let stack = []; // Only holds "(". Nothing else

@@ -8,6 +8,8 @@ It create a new transverse within the original transverse. once the new inner re
 PREORDER: Processes the node itself at the TOP first,(Clears the entire left side first.) then the left child, and finally the right child.
 Use case: Good for copying or cloning trees. Used in serialization of trees (e.g., creating a copy).
  */
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 function DFSPreOrder() {
   let results = []; // This will store the node values in preorder
 
@@ -19,6 +21,8 @@ function DFSPreOrder() {
   transverse(this.root); // Start the traversal from the root of the tree
 }
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds pending ancestors, worst case O(n) if unbalanced
 function preorderDFSIterative(root) {
   if (!root) return []; // If the root is null, return an empty array
 
@@ -40,6 +44,8 @@ function preorderDFSIterative(root) {
 POSTORDER: Processes the left child first, then the right child at the BOTTOM, and finally the node itself.
 Use case: Useful for deleting trees (to ensure children are deleted before the parent). Evaluating expression trees.
 */
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 function DFSPostOrder() {
   let results = []; // This will store the node values in preorder
 
@@ -51,6 +57,8 @@ function DFSPostOrder() {
   transverse(this.root); // Start the traversal from the root of the tree
 }
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds pending ancestors, worst case O(n) if unbalanced
 function postorderDFSIterative(root) {
   if (!root) return [];
 
@@ -73,6 +81,8 @@ INORDER: Processes left child first at the BOTTOM, then the node, then the right
 Use case: Produces sorted order for binary search trees (BSTs). Useful for generating sorted lists.
 */
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 function DFSInOrder() {
   let results = []; // This will store the node values in in-order
 
@@ -86,6 +96,8 @@ function DFSInOrder() {
   return results; // Return the collected values in in-order
 }
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds the ancestor path, worst case O(n) if unbalanced
 function inorderDFSIterative(root) {
   const result = [];
   const stack = [];

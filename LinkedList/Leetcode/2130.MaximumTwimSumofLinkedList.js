@@ -28,6 +28,8 @@ Output: 100001
 Explanation:
 There is only one node with a twin in the linked list having twin sum of 1 + 100000 = 100001.*/
 
+// Time Complexity: O(n) — find middle, reverse half, then compare pairs
+// Space Complexity: O(1) — only pointers, second half reversed in place
 var pairSum = function (head) {
   let slow = head;
   let fast = head;
@@ -49,6 +51,8 @@ var pairSum = function (head) {
   return max;
 };
 
+// Time Complexity: O(n) — reverses every node's pointer once
+// Space Complexity: O(1) — only prev/curr/next pointers used
 function reverse(head) {
   let prev = null;
   let curr = head;

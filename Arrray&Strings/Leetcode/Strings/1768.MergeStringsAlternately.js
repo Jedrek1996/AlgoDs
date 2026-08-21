@@ -19,6 +19,8 @@ Output: "apbqcd"
 Explanation: Notice that as word1 is longer, "cd" is appended to the end.
 
 */
+// Time Complexity: O(n + m) — single loop over the longer of the two strings
+// Space Complexity: O(n + m) — merged array/string stores the combined result
 var mergeAlternately = function (word1, word2) {
   let merged = [];
 

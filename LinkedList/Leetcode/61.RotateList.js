@@ -8,6 +8,8 @@ Example 2:
 Input: head = [0,1,2], k = 4
 Output: [2,0,1]
 */
+// Time Complexity: O(n) — one pass for length, another to find the new tail
+// Space Complexity: O(1) — only a few pointer variables used
 var rotateRight = function (head, k) {
   // edge cases
   if (!head) return head;

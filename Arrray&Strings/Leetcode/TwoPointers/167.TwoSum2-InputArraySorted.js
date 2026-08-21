@@ -20,6 +20,8 @@ Output: [1,2]
 Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 */
 
+// Time Complexity: O(n) — two pointers scan the array once
+// Space Complexity: O(1) — only constant extra space used
 var twoSum = function (numbers, target) {
     let left = 0, right = numbers.length - 1
 

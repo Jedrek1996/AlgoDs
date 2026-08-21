@@ -13,6 +13,8 @@ class DoublyLinkedList {
     this.tail = newNode;
     this.length = 1;
   }
+  // Time Complexity: O(1) — appends using the tracked tail pointer
+  // Space Complexity: O(1) — creates a single new node
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -27,6 +29,8 @@ class DoublyLinkedList {
     return this;
   }
 
+  // Time Complexity: O(1) — tail's prev pointer gives direct access, no traversal needed
+  // Space Complexity: O(1) — no extra allocation
   pop() {
     if (this.length === 0) return undefined;
     let temp = this.tail;
@@ -42,6 +46,8 @@ class DoublyLinkedList {
     return temp;
   }
 
+  // Time Complexity: O(1) — new node just replaces the head pointer
+  // Space Complexity: O(1) — creates a single new node
   unshift(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -56,6 +62,8 @@ class DoublyLinkedList {
     return this;
   }
 
+  // Time Complexity: O(1) — head pointer advances using the next node's link
+  // Space Complexity: O(1) — no extra allocation
   shift() {
     if (this.length === 0) {
       return undefined;
@@ -74,6 +82,8 @@ class DoublyLinkedList {
     return temp;
   }
 
+  // Time Complexity: O(n) — walks from whichever end (head or tail) is closer to the index
+  // Space Complexity: O(1) — only a temp pointer and loop counter
   get(index) {
     if (index < 0 || index >= this.length) {
       return undefined;
@@ -93,6 +103,8 @@ class DoublyLinkedList {
     return temp;
   }
 
+  // Time Complexity: O(n) — delegates to get(), which walks the list
+  // Space Complexity: O(1) — no extra allocation
   set(index, value) {
     let temp = this.get(index);
     if (temp) {
@@ -102,6 +114,8 @@ class DoublyLinkedList {
     return false;
   }
 
+  // Time Complexity: O(n) — calls get() to locate the node at the index
+  // Space Complexity: O(1) — creates a single new node
   insert(index, value) {
     if (index === 0) return this.unshift(value);
     if (index === this.length) return this.push(value);
@@ -120,6 +134,8 @@ class DoublyLinkedList {
     return true;
   }
 
+  // Time Complexity: O(n) — calls get() to locate the node at the index
+  // Space Complexity: O(1) — only pointer updates, no extra allocation
   remove(index) {
     if (index === 0) return this.shift();
     if (index === this.length - 1) return this.pop();

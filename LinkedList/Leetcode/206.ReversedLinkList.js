@@ -17,6 +17,8 @@ Output: [5,4,3,2,1]
  * @return {ListNode}
  */
 
+// Time Complexity: O(n) — visits every node once
+// Space Complexity: O(1) — only prev/curr/next pointers
 var reverseList = function (head) {
   let prev = null;
   let curr = head;

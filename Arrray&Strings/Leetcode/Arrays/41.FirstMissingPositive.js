@@ -23,6 +23,8 @@ Explanation: The smallest positive integer 1 is missing.
  * @param {number[]} nums
  * @return {number}
  */
+// Time Complexity: O(n) — cyclic sort places each number in one pass
+// Space Complexity: O(1) — numbers are rearranged in place
 var firstMissingPositive = function (nums) {
   let n = nums.length;
 

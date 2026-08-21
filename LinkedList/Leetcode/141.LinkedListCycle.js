@@ -31,6 +31,8 @@ Explanation: There is no cycle in the linked list.
  * @param {ListNode} head
  * @return {boolean}
  */
+// Time Complexity: O(n) — slow/fast pointers traverse the list once
+// Space Complexity: O(1) — only two pointer variables used
 var hasCycle = function (head) {
   let fastPointer = head;
   let slowPointer = head;

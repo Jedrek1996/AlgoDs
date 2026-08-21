@@ -20,6 +20,8 @@ Output: 23 */
  * @param {string} s
  * @return {number}
  */
+// Time Complexity: O(n) — single pass over the expression string
+// Space Complexity: O(n) — sign stack grows with nested parentheses depth
 var calculate = function (s) {
     let res = 0;              // running total
     let num = 0;               // number currently being built from digits

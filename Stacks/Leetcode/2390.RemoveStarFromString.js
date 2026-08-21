@@ -22,6 +22,8 @@ Output: ""
 Explanation: The entire string is removed, so we return an empty string.
 */
 
+// Time Complexity: O(n) — single pass over the string
+// Space Complexity: O(n) — stack holds up to n surviving characters
 var removeStars = function (s) {
   let stack = [];
 

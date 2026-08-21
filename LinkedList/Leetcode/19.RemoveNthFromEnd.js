@@ -19,6 +19,8 @@ Output: [1,2,3,5]
  * @return {ListNode}
  */
 
+// Time Complexity: O(n) — single pass with two pointers offset by n
+// Space Complexity: O(1) — dummy node and two pointers only
 var removeNthFromEnd = function(head, n) {
     let dummy = new ListNode(0, head);
     let slow = dummy;

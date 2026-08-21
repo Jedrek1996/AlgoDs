@@ -26,6 +26,8 @@ Input: head = [[3,null],[3,0],[3,null]]
 Output: [[3,null],[3,0],[3,null]]
   */
 
+// Time Complexity: O(n) — two passes over the list, one map lookup each
+// Space Complexity: O(n) — hash map stores a copy for every node
 var copyRandomList = function (head) {
   if (!head) return null;
 

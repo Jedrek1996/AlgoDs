@@ -26,6 +26,8 @@ The input is generated such that a majority element will exist in the array.
  * - The majority element will always be the candidate at the end
  */
 
+// Time Complexity: O(n) — single pass using Boyer-Moore voting
+// Space Complexity: O(1) — only a candidate and count variable used
 var majorityElement = function (nums) {
   let candidate = 0;
   let count = 0;

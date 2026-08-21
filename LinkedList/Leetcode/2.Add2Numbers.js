@@ -10,6 +10,8 @@ Output: [7,0,8]
 Explanation: 342 + 465 = 807
  */
 
+// Time Complexity: O(max(n, m)) — walks both lists once building the sum list
+// Space Complexity: O(max(n, m)) — new list created for the result
 var addTwoNumbers = function (l1, l2) {
   let dummy = new ListNode();
   let curr = dummy;

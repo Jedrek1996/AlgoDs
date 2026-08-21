@@ -14,6 +14,8 @@ Example 2:
 Input: numRows = 1
 Output: [[1]]
 */
+// Time Complexity: O(n^2) — nested loops build each row from the previous one
+// Space Complexity: O(n^2) — output array stores every value in the triangle
 var generate = function (numRows) {
   const result = [];
 

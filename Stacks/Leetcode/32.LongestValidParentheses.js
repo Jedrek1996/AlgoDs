@@ -18,6 +18,8 @@ Output: 0
 
 */
 
+// Time Complexity: O(n) — single pass over the string
+// Space Complexity: O(n) — stack holds up to n unmatched indices
 var longestValidParentheses = function (s) {
   const stack = [-1];
   let max_len = 0;

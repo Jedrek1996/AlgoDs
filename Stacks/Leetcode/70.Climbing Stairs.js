@@ -18,6 +18,8 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 */
 
+// Time Complexity: O(n) — single loop computing each step count once
+// Space Complexity: O(1) — only two previous values are tracked
 var climbStairs = function (n) {
   if (n <= 3) return n; //If less than 3 the steps are 3, 2, 1 accoringly
 

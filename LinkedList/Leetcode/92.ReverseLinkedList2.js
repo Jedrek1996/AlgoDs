@@ -12,6 +12,8 @@ Output: [5]
 
 Left and right are indexes..
 */
+// Time Complexity: O(n) — single pass to reach left then reverse the sublist
+// Space Complexity: O(1) — in-place pointer rewiring, no extra storage
 var reverseBetween = function(head, left, right) {
     const dummy = new ListNode(0, head);
     let prev = dummy;

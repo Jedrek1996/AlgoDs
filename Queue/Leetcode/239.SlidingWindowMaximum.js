@@ -21,6 +21,8 @@ Input: nums = [1], k = 1
 Output: [1]
 
 */
+// Time Complexity: O(n) — each index is pushed and popped from the deque at most once
+// Space Complexity: O(n) — deque and result array hold up to n indices/values
 var maxSlidingWindow = function (nums, k) {
   const q = []; // deque to store current window
   const res = []; // result array to store max values
@@ -41,6 +43,8 @@ var maxSlidingWindow = function (nums, k) {
   return res; // Return the result array with all the max values
 };
 
+// Time Complexity: O(n) — each index is pushed and popped from the deque at most once
+// Space Complexity: O(n) — deque and result array hold up to n indices/values
 var maxSlidingWindow = function (nums, k) {
   const q = [];
   const res = [];

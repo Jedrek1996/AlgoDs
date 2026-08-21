@@ -23,6 +23,8 @@ Output: "abcabccdcdcdef
  * @param {string} 
  * @return {string}
  */
+// Time Complexity: O(n * k) — nested repeats re-expand substrings onto the stack
+// Space Complexity: O(n * k) — stack stores expanded substrings, worst case with nesting
 var decodeString = function (s) {
   let stack = [];
   for (let char of s) {

@@ -10,6 +10,8 @@ Input: root = [4,2,7,1,3], val = 5
 Output: []
 */
 
+// Time Complexity: O(h) — follows a single path down the BST, worst case O(n) if unbalanced
+// Space Complexity: O(h) — recursion call stack for that single path, worst case O(n) if unbalanced
 var searchBST = function (root, val) {
   if (!root) return null;
 

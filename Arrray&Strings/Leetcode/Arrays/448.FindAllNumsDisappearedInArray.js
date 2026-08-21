@@ -6,6 +6,8 @@ Input: nums = [4,3,2,7,8,2,3,1] << 5,6 missing from here
 Output: [5,6]
 
 */
+// Time Complexity: O(n) — one pass to mark, one pass to collect results
+// Space Complexity: O(1) — reuses input array, ignoring output list
 var findDisappearedNumbers = function (nums) {
   // loop through each number, use it as a pointer to an index and flip that index negative = "mark as seen"
   for (const n of nums) {

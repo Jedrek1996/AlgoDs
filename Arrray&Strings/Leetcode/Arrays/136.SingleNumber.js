@@ -42,6 +42,8 @@ Input: nums = [1]
   100  = 4 ✓
 */
 
+// Time Complexity: O(n) — single pass XOR over every element
+// Space Complexity: O(1) — only an accumulator variable is used
 var singleNumber = function (nums) {
   return nums.reduce((acc, num) => acc ^ num, 0);
 //                    ^^^  ^^^                ^

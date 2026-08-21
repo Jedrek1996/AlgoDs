@@ -20,6 +20,8 @@ Output: 8
 Explanation:
 n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
 */
+// Time Complexity: O(n) — single pass XOR-ing indices and values
+// Space Complexity: O(1) — only a running result variable is used
 var missingNumber = function (nums) {
   let result = nums.length;
 

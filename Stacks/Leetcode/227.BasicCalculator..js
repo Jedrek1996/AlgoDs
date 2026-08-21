@@ -20,6 +20,8 @@ Output: 1
 
 */
 
+// Time Complexity: O(n) — single pass over the expression string
+// Space Complexity: O(n) — stack stores one term per +/- operand
 var calculate = function (s) {
   let num = "",
     prevOp = "+",

@@ -1,3 +1,5 @@
+// Time Complexity: O(n) — amortized, each index pushed/popped once
+// Space Complexity: O(n) — stack and result array sized to nums
 function nextGreaterElements(nums) {
   const n = nums.length;
   const result = new Array(n).fill(-1); // Initialize result array with -1

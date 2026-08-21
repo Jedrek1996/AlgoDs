@@ -15,6 +15,8 @@ class Queue {
   }
 
   //Add to queue
+  // Time Complexity: O(1) — attaches the new node at the tail via pointer update
+  // Space Complexity: O(1) — allocates a single new node
   enqueue(value) {
     const newNode = new Node(value);
     if (this.length === 0) {
@@ -29,6 +31,8 @@ class Queue {
   }
 
   //Remove the first value (like shift remove fron the front)
+  // Time Complexity: O(1) — removes the head via pointer update
+  // Space Complexity: O(1) — no extra structures used
   dequeue() {
     if (this.length === 0) return undefined;
     let temp = this.first;

@@ -15,6 +15,8 @@ Explanation: Remove the leading 1 and the number is 200. Note that the output mu
  * @param {number} k
  * @return {string}
  */
+// Time Complexity: O(n) — each digit pushed/popped at most once, amortized
+// Space Complexity: O(n) — stack holds up to n digits
 var removeKdigits = function (num, k) {
   let stack = [];
   for (let n of num) {

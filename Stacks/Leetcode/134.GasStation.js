@@ -27,6 +27,8 @@ You cannot travel back to station 2, as it requires 4 unit of gas but you only h
 Therefore, you can't travel around the circuit once no matter where you start.
 */
 
+// Time Complexity: O(n) — single pass over the stations
+// Space Complexity: O(1) — only a few running totals are kept
 var canCompleteCircuit = function (gas, cost) {
   let totalTank = 0;
   let currentTank = 0;

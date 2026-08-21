@@ -25,6 +25,8 @@ i=5  cur=5           max=5
 i=6  cur=6           max=6  ✓
 */
 
+// Time Complexity: O(n) — single pass Kadane's algorithm over nums
+// Space Complexity: O(1) — only running current and max sums are kept
 var maxSubarray = function (nums) {
   let cur = nums[0]; // current running sum
   let max = nums[0]; // best sum seen so far

@@ -22,6 +22,8 @@ Output: 444
 [3,1,2]  → min = 1
 */
 
+// Time Complexity: O(n) — amortized, each index pushed/popped once
+// Space Complexity: O(n) — stack holds up to n indices
 var sumSubarrayMins = function (arr) {
   const MOD = 10 ** 9 + 7; // keeps the final number from getting too big
   const stack = [-1]; // fake "wall" index, so math works even with nothing to the left

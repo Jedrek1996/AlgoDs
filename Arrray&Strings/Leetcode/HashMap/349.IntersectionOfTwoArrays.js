@@ -11,6 +11,8 @@ Explanation: [4,9] is also accepted.
 
 */
 
+// Time Complexity: O(n + m) — build set from nums1, scan nums2 once
+// Space Complexity: O(n + m) — set1 plus result set store elements
 var intersection = function (nums1, nums2) {
   const set1 = new Set(nums1);
   const result = new Set();

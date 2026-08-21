@@ -8,6 +8,8 @@ Output: "ca"
 Explanation: 
 For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".*/
 
+// Time Complexity: O(n) — single pass over the string, one push/pop per char
+// Space Complexity: O(n) — stack can hold up to n chars in the worst case
 var removeDuplicates = function (s) {
   let stack = [];
 

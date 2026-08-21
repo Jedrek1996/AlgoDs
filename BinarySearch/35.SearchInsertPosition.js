@@ -3,6 +3,8 @@
  * @param {number} target
  * @return {number}
  */
+// Time Complexity: O(log n) — binary search halves the range until target or slot found
+// Space Complexity: O(1) — only pointer variables used, no extra data structures
 var searchInsert = function (nums, target) {
     let left = 0, right = nums.length - 1
 

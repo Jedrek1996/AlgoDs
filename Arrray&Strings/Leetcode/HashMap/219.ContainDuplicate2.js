@@ -15,6 +15,8 @@ Input: nums = [1,2,3,1,2,3], k = 2
 Output: false
 */
 
+// Time Complexity: O(n) — single pass with constant-time set operations
+// Space Complexity: O(k) — sliding window set holds at most k+1 values
 var containsNearbyDuplicate = function (nums, k) {
   const window = new Set();
 

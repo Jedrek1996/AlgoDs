@@ -13,6 +13,8 @@ Input: head = [1,1,1,2,3
 */
 
 //[1, 2, 3, 3, 4, 4, 5]
+// Time Complexity: O(n) — single pass removing consecutive duplicate runs
+// Space Complexity: O(1) — only dummy node and pointers used
 var deleteDuplicates = function (head) {
   const dummy = new ListNode(0, head); 
   let prev = dummy; 

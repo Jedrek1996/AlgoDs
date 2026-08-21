@@ -12,6 +12,8 @@ Output: 2
  How many times can the subarray of the array add up to k value.
 */
 
+// Time Complexity: O(n) — single pass with map lookups per element
+// Space Complexity: O(n) — map stores a count per distinct prefix sum
 var subarraySum = function (nums, k) {
   const map = new Map();
   // prefix sum of 0 has occurred once (empty subarray before index 0)

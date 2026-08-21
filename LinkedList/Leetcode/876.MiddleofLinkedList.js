@@ -38,6 +38,8 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
  * @return {ListNode}
  */
 
+// Time Complexity: O(n) — fast pointer traverses the list once
+// Space Complexity: O(1) — only two pointer variables used
 var middleNode = function (head) {
   let fastPointer = head;
   let slowPointer = head;

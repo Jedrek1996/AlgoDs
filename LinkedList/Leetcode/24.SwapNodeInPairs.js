@@ -10,6 +10,8 @@ Output: [2,1,4,3]
 */
 
 //npn next pair node
+// Time Complexity: O(n) — visits each pair of nodes once
+// Space Complexity: O(1) — only a few pointer variables used
 var swapPairs = function (head) {
   let dummy = new ListNode(0, head);
   let curr = dummy; // Helps to connect the end of the currs swapped pair

@@ -14,6 +14,8 @@ Input: head = [1,2,3,4,5], k = 3
 Output: [3,2,1,4,5]
 */
 //Solution 1
+// Time Complexity: O(n) — each node visited once across the recursive calls
+// Space Complexity: O(n/k) — recursion stack holds one frame per group of k nodes
 var reverseKGroup = function (head, k) {
   // Check if there are at least k nodes remaining
   let count = 0;
@@ -44,6 +46,8 @@ var reverseKGroup = function (head, k) {
 };
 
 //Solution 2
+// Time Complexity: O(n) — each node visited once while grouping and reversing
+// Space Complexity: O(k) — stack holds at most one group of k nodes
 var reverseKGroup = function (head, k) {
   let stack = [];
   let dummy = new ListNode(0);

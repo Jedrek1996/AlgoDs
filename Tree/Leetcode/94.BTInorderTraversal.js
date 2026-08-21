@@ -23,6 +23,8 @@ Input: root = [1]
 Output: [1]
 */
 //Iterative
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds the ancestor path, worst case O(n) if unbalanced
 var inorderTraversal = function (root) {
   if (!root) return [];
 
@@ -45,6 +47,8 @@ var inorderTraversal = function (root) {
 };
 
 //Recursive
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 var inorderTraversal = function (root) {
   if (!root) return [];
   let result = [];

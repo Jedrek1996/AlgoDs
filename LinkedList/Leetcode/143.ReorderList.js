@@ -17,6 +17,8 @@ Output: [1,5,2,4,3]
 ** BASICALLY SPLITTING THE LIST INTO HALF, ADD IT BACKWARDS ALTERNATING
 */
 
+// Time Complexity: O(n) — find middle, reverse half, and merge, each linear
+// Space Complexity: O(1) — pointers only, no extra data structures
 var reorderList = function (head) {
   if (!head || !head.next) return;
 
@@ -49,6 +51,8 @@ var reorderList = function (head) {
   return head;
 };
 
+// Time Complexity: O(n) — visits every node once to reverse pointers
+// Space Complexity: O(1) — only prev/curr/next pointers used
 var reverse = function (head) {
   let prev = null;
   let curr = head;

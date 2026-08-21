@@ -8,6 +8,8 @@ Input: head = [1,1,2]
 Output: [1,2]
 */
 
+// Time Complexity: O(n) — single pass through the sorted list
+// Space Complexity: O(1) — only a pointer variable used
 var deleteDuplicates = function (head) {
   let curr = head;
   while (curr && curr.next) {

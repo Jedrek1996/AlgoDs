@@ -25,6 +25,8 @@ Cows = right digit, wrong position
 Need to know that the numbers given WILL only be eg. 12345, 33331 same amount of length but diff digits. Thus when it is not a bull we will ++
 */
 
+// Time Complexity: O(n) — one pass over secret/guess plus a fixed 10-digit loop
+// Space Complexity: O(1) — two fixed-size arrays of length 10
 var getHint = function (secret, guess) {
   let bulls = 0,
     cows = 0;

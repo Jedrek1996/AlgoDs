@@ -1,3 +1,5 @@
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(n) — queue holds up to n nodes at the widest level
 function bfs(root) {
   let queue = [root];
   let result = [];
@@ -12,6 +14,8 @@ function bfs(root) {
   return result;
 }
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds pending ancestors, worst case O(n) if unbalanced
 function preorderDFSIterative(root) {
   let result = [];
   let stack = [root];
@@ -27,6 +31,8 @@ function preorderDFSIterative(root) {
   return result;
 }
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds pending ancestors, worst case O(n) if unbalanced
 function postorderDFSIterative(root) {
   let result = [];
   let stack = [root];
@@ -40,6 +46,8 @@ function postorderDFSIterative(root) {
   return result.reverse();
 }
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — stack holds the ancestor path, worst case O(n) if unbalanced
 function inorderDFSIterative(root) {
   let result = [];
   let stack = [];

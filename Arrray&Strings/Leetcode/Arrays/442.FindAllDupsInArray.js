@@ -16,6 +16,8 @@ Input: nums = [1]
 Output: []
 */
 
+// Time Complexity: O(n) — single pass marking visited indices negative
+// Space Complexity: O(1) — reuses input array, ignoring output list
 var findDuplicates = function (nums) {
   let res = [];
 

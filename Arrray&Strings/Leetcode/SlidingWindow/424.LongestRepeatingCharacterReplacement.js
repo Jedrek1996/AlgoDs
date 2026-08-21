@@ -16,6 +16,8 @@ The substring "BBBB" has the longest repeating letters, which is 4.
 There may exists other ways to achieve this answer too.
 */
 
+// Time Complexity: O(n) — right pointer scans once, left shrinks amortized O(n)
+// Space Complexity: O(1) — freqs object bounded by fixed uppercase alphabet
 var characterReplacement = function (s, k) {
   let freqs = {}; // tracks count of each character currently in the window
   let res = 0,

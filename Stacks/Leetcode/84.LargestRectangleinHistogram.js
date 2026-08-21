@@ -14,6 +14,8 @@ Input: heights = [2,4]
 Output: 4
 */
 
+// Time Complexity: O(n) — amortized, each bar index pushed/popped once
+// Space Complexity: O(n) — stack holds up to n bar indices
 var largestRectangleArea = function (heights) {
   let max = 0;
   let stack = []; // Stack to store indices of the bars

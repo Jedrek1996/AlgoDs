@@ -93,6 +93,8 @@ All nodes satisfy BST conditions, so the function returns true.
  * @param {TreeNode} root
  * @return {boolean}
  */
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 var isValidBST = function (root) {
   function valid(node, minimum, maximum) {
     if (!node) return true;

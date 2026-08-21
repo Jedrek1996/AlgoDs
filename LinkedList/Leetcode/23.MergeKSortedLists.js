@@ -34,6 +34,8 @@ Output: []
 
 */
 
+// Time Complexity: O(N log k) — merges k lists pairwise across log k rounds, N total nodes
+// Space Complexity: O(k) — temporary array holds list pointers each round
 var mergeKLists = function(lists) {
     if (!lists.length) return null;
     
@@ -49,6 +51,8 @@ var mergeKLists = function(lists) {
 };
 
 
+// Time Complexity: O(n + m) — merges two lists in one linear pass
+// Space Complexity: O(1) — reuses existing nodes, only dummy pointer added
 let mergeLists = (listA, listB) => {
   let dummy = new ListNode();
   let curr = dummy;

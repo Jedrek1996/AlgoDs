@@ -17,6 +17,8 @@ Output: [1,1,0]
 
 */
 
+// Time Complexity: O(n) — amortized, each index pushed/popped once
+// Space Complexity: O(n) — stack and result array sized to input length
 var dailyTemperatures = function (temperatures) {
   const stack = [];
   // Store number of days until a warmer temperature is found

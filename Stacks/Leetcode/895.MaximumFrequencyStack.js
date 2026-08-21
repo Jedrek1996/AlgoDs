@@ -27,12 +27,16 @@ freqStack.pop();   // return 5, as 5 is the most frequent. The stack becomes [5,
 freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is closest to the top. The stack becomes [5,7].
  */
 
+// Time Complexity: O(1) — initializes an empty map and array
+// Space Complexity: O(1) — no elements stored yet
 var FreqStack = function () {
   this.fmap = new Map(); // stores value -> its current frequency
   this.stack = []; // index = frequency, value = list of nums pushed at that frequency
 };
 
 // Val is the exact value
+// Time Complexity: O(1) — map update plus a push onto the freq bucket
+// Space Complexity: O(1) — adds one entry to the current freq's bucket
 FreqStack.prototype.push = function (val) {
   let freq = (this.fmap.get(val) ?? 0) + 1; // increase freq of val by 1
   this.fmap.set(val, freq); // save updated freq
@@ -47,6 +51,8 @@ FreqStack.prototype.push = function (val) {
 */
 
 //Pop the value based off the freq first, if the array holding the val is empty. pop the next array
+// Time Complexity: O(1) — pops from the top freq bucket and updates the map
+// Space Complexity: O(1) — no extra space used
 FreqStack.prototype.pop = function () {
   let top = this.stack[this.stack.length - 1]; // get list at the highest freq (last index)
   let val = top.pop(); // remove most recent val from that list

@@ -16,6 +16,8 @@ The two tuples are:
 Loop through both arrays we split into A+B C+D. Doesn't matter which index, we store all possible outputs from both sides. Both outputs should equal to 0.
 */
 
+// Time Complexity: O(n^2) — two nested loops of size n build/query the map
+// Space Complexity: O(n^2) — map can hold up to n^2 distinct pair sums
 var fourSumCount = function (nums1, nums2, nums3, nums4) {
   let map = new Map();
   let count = 0;

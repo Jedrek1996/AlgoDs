@@ -23,6 +23,8 @@ Explanation: We have many possible scenarios, and all lead to the same answer. F
 "abBAcC" --> "abBA" --> "aA" --> ""
 */
 
+// Time Complexity: O(n) — single pass, each char pushed/popped once
+// Space Complexity: O(n) — stack can hold up to n chars in the worst case
 var makeGood = function (s) {
   let stack = [];
 

@@ -39,6 +39,8 @@ var RecentCounter = function() {
     this.stream = []
 };
 
+// Time Complexity: O(1) amortized — each stale entry shifted out was pushed exactly once
+// Space Complexity: O(n) — stream can hold up to n timestamps within the 3000ms window
 RecentCounter.prototype.ping = function(t) {
   // Everytime we recieve a ping, add the time to the stream of integers
   this.stream.push(t) 

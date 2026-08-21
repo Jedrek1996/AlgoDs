@@ -31,6 +31,8 @@ Output: 1
 Explanation: The friends leave in this order: 5, 4, 6, 2, 3. The winner is friend 1.
 */
 
+// Time Complexity: O(n) — one pass computing the Josephus position for each round
+// Space Complexity: O(1) — only a running result variable is used
 var findTheWinner = function(n, k) {
     let res = 0;
        for (let player_num = 1; player_num <= n; player_num++) {

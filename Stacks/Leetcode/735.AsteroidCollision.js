@@ -30,6 +30,8 @@ cur > 0: true, push 10 into stack
 -5 doesnt mean any condition.
 
 */
+// Time Complexity: O(n) — amortized, each asteroid pushed/popped a bounded number of times
+// Space Complexity: O(n) — result/stack array holds surviving asteroids
 var asteroidCollision = function (asteroids) {
   const res = [];
 
@@ -62,6 +64,8 @@ Why this makes sense physically: -5 is moving left (drifting away, further left,
 
   return res;
 };
+// Time Complexity: O(n) — amortized, each asteroid pushed/popped a bounded number of times
+// Space Complexity: O(n) — result/stack array holds surviving asteroids
 var asteroidCollision = function (asteroids) {
   let stack = [];
 

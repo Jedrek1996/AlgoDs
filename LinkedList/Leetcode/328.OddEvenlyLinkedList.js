@@ -14,6 +14,8 @@ Input: head = [2,1,3,5,6,4,7]
 Output: [2,3,6,7,1,5,4]
 */
 
+// Time Complexity: O(n) — single pass rewiring odd/even pointers
+// Space Complexity: O(1) — only pointer variables, no extra allocation
 var oddEvenList = function (head) {
   if (!head) return null;
 

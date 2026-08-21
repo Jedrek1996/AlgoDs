@@ -15,6 +15,8 @@ Input: root = []
 Output: []
 */
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(n) — queue holds up to n nodes at the widest level
 var levelOrder = function (root) {
   let queue = [root];
   let result = [];
@@ -34,6 +36,8 @@ var levelOrder = function (root) {
   return result;
 };
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(n) — queue holds up to n nodes at the widest level
 var levelOrder = function (root) {
   let queue = [root];
   let result = [];

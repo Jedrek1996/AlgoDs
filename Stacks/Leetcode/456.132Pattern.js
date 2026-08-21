@@ -14,6 +14,8 @@ Input: nums = [3,1,4,2]
 Output: true
 Explanation: There is a 132 pattern in the sequence: [1, 4, 2].
  */
+// Time Complexity: O(n) — single reverse pass, each element pushed/popped once
+// Space Complexity: O(n) — stack can hold up to n candidate values
 var find132pattern = function (nums) {
   const stack = []; 
   let third = -Infinity; // best confirmed "2" (middle value) found so far

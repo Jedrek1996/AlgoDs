@@ -23,6 +23,8 @@ Since an empty string reads the same forward and backward, it is a palindrome.
  * @param {string} s
  * @return {boolean}
  */
+// Time Complexity: O(n) — two pointers converge toward the middle
+// Space Complexity: O(1) — no extra structures, just index variables
 var isPalindrome = function (s) {
   let left = 0,
     right = s.length - 1; // two pointers: start and end of string

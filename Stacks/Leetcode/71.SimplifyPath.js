@@ -47,6 +47,8 @@ Explanation:
 "..." is a valid name for a directory in this problem.
 */
 
+// Time Complexity: O(n) — single pass over the split path segments
+// Space Complexity: O(n) — stack holds up to n directory names
 var simplifyPath = function (path) {
   const stack = [];
   for (const dir of path.split("/")) {

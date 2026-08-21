@@ -25,11 +25,15 @@ randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contai
 randomizedSet.insert(2); // 2 was already in the set, so return false.
 randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2. */
 
+// Time Complexity: O(1) — initializes an empty map and array
+// Space Complexity: O(1) — starts empty, grows to O(n) with n inserts
 var RandomizedSet = function () {
   this.map = new Map(); // val -> its index in arr
   this.arr = []; // holds all values, gives us O(1) random access
 };
 
+// Time Complexity: O(1) — map lookup and array push are constant time
+// Space Complexity: O(1) — adds a single entry to map and array
 RandomizedSet.prototype.insert = function (val) {
   if (this.map.has(val)) return false; // duplicate, reject
 
@@ -38,6 +42,8 @@ RandomizedSet.prototype.insert = function (val) {
   return true;
 };
 
+// Time Complexity: O(1) — swap with last element avoids shifting the array
+// Space Complexity: O(1) — no extra data structures allocated
 RandomizedSet.prototype.remove = function (val) {
   if (!this.map.has(val)) return false; // doesn't exist, reject
 
@@ -52,17 +58,23 @@ RandomizedSet.prototype.remove = function (val) {
   return true;
 };
 
+// Time Complexity: O(1) — random index lookup into a dense array
+// Space Complexity: O(1) — no extra memory used
 RandomizedSet.prototype.getRandom = function () {
   const randIdx = Math.floor(Math.random() * this.arr.length);
   return this.arr[randIdx]; // arr is always dense so index is uniform
 };
 
 // No comments
+// Time Complexity: O(1) — initializes an empty map and array
+// Space Complexity: O(1) — starts empty, grows to O(n) with n inserts
 var RandomizedSet = function () {
   this.map = new Map();
   this.arr = [];
 };
 
+// Time Complexity: O(1) — map lookup and array push are constant time
+// Space Complexity: O(1) — adds a single entry to map and array
 RandomizedSet.prototype.insert = function (val) {
   if (this.map.has(val)) return false;
 
@@ -71,6 +83,8 @@ RandomizedSet.prototype.insert = function (val) {
   return true;
 };
 
+// Time Complexity: O(1) — swap with last element avoids shifting the array
+// Space Complexity: O(1) — no extra data structures allocated
 RandomizedSet.prototype.remove = function (val) {
   if (!this.map.has(val)) return false;
 
@@ -85,6 +99,8 @@ RandomizedSet.prototype.remove = function (val) {
   return true;
 };
 
+// Time Complexity: O(1) — random index lookup into a dense array
+// Space Complexity: O(1) — no extra memory used
 RandomizedSet.prototype.getRandom = function () {
   const randIdx = Math.floor(Math.random() * this.arr.length);
   return this.arr[randIdx];

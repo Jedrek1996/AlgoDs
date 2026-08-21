@@ -14,6 +14,8 @@ Input: height = [1,1]
 Output: 1
 */
 
+// Time Complexity: O(n) — two pointers converge across the array once
+// Space Complexity: O(1) — only a few tracking variables used
 var maxArea = function (height) {
   let left = 0,
     right = height.length - 1; // start pointers at both ends

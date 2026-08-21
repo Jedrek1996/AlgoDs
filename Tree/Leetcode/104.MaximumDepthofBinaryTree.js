@@ -33,6 +33,8 @@ Output: 3
             
 
 */
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 var maxDepth = function(root) {
     if(root == null)  return 0;
     let leftDepth = maxDepth(root.left);
@@ -40,6 +42,8 @@ var maxDepth = function(root) {
     return Math.max(leftDepth, rightDepth) + 1;
 };
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(n) — queue holds up to n nodes at the widest level
 var maxDepth = function(root) {
     if(!root) return 0;
     let levels = 0

@@ -13,6 +13,8 @@ Input: nums = [-1,0,3,5,9,12], target = 2
 Output: -1
 Explanation: 2 does not exist in nums so return -1 */
 
+// Time Complexity: O(log n) — classic binary search halves the range each iteration
+// Space Complexity: O(1) — only index variables used, no extra data structures
 var search = function (nums, target) {
   let left = 0,
     right = nums.length - 1;

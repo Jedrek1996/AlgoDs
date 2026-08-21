@@ -35,6 +35,8 @@ Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
 */
 
 
+// Time Complexity: O(n) — one pass over the tokens
+// Space Complexity: O(n) — stack holds operands, up to n in the worst case
 function evalRPN(tokens) {
   let stack = [];
 

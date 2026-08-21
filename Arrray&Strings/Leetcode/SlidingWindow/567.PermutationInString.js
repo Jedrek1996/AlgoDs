@@ -15,6 +15,8 @@ Output: false
  
 */
 
+// Time Complexity: O(n) — n = s2.length, building counts then sliding window once
+// Space Complexity: O(1) — count maps bounded by fixed alphabet size
 var checkInclusion = function (s1, s2) {
   // if s1 is longer than s2, it can't possibly fit inside s2 — bail early
   if (s1.length > s2.length) {
@@ -84,6 +86,8 @@ function isEqual(obj1, obj2) {
 
 else we go into sliding window whereby we start from where we left off during the first loop. in the next loop we move our sldiing window right and left -1, then check if it is equal if it is equal return true */
 
+// Time Complexity: O(n) — n = s2.length, building counts then sliding window once
+// Space Complexity: O(1) — count maps bounded by fixed alphabet size
 var checkInclusion = function (s1, s2) {
   if (s1.length > s2.length) return false;
 

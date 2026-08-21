@@ -39,6 +39,8 @@ Minimum depth is the length of this path, which is 5.
 ======================
 */
 
+// Time Complexity: O(n) — visits every node exactly once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 var minDepth = function (root) {
   if (!root) return 0; // Base case: if the root is null, the depth is 0
 

@@ -15,6 +15,8 @@ Output: [1,2]
 MOVE all the numbers < than X to the left. The rest stays in position. EVEN IF the no is === X IT STAYS PUT
 */
 
+// Time Complexity: O(n) — single pass splitting nodes into two lists
+// Space Complexity: O(1) — reuses existing nodes, only pointers added
 var partition = function (head, x) {
   let beforeNode = new ListNode(0);
   let afterNode = new ListNode(0);

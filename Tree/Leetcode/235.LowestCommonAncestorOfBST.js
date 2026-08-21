@@ -14,6 +14,8 @@ Output: 2
 Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 */
 
+// Time Complexity: O(h) — walks down a single path, worst case O(n) if unbalanced
+// Space Complexity: O(1) — iterative walk, only pointer reassignment used
 var lowestCommonAncestor = function (root, p, q) {
   // Traverse the tree starting at the root
   while (root) {

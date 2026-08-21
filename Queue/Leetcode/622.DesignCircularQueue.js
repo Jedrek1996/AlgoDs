@@ -29,6 +29,8 @@ var MyCircularQueue = function(k) {
 };
 
 //Adds value to the end (rear) of the queue.
+// Time Complexity: O(1) — appends a node at the tail via pointer updates
+// Space Complexity: O(1) — allocates a single new node
 MyCircularQueue.prototype.enQueue = function(value) {
     if (this.isFull()) return false;
     let newNode = new ListNode(value);
@@ -44,6 +46,8 @@ MyCircularQueue.prototype.enQueue = function(value) {
 };
 
 //Removes the element from the front of the queue.
+// Time Complexity: O(1) — removes the head via pointer updates
+// Space Complexity: O(1) — no extra structures used
 MyCircularQueue.prototype.deQueue = function() {
     if (this.isEmpty()) return false;
     if (this.head === this.tail) {
@@ -56,18 +60,26 @@ MyCircularQueue.prototype.deQueue = function() {
     return true;
 };
 
+// Time Complexity: O(1) — reads the head node's value directly
+// Space Complexity: O(1) — no extra structures used
 MyCircularQueue.prototype.Front = function() {
     return this.isEmpty() ? -1 : this.head.val;
 };
 
+// Time Complexity: O(1) — reads the tail node's value directly
+// Space Complexity: O(1) — no extra structures used
 MyCircularQueue.prototype.Rear = function() {
     return this.isEmpty() ? -1 : this.tail.val;
 };
 
+// Time Complexity: O(1) — checks the stored length counter
+// Space Complexity: O(1) — no extra structures used
 MyCircularQueue.prototype.isEmpty = function() {
     return this.length === 0;
 };
 
+// Time Complexity: O(1) — compares the stored length counter to maxLength
+// Space Complexity: O(1) — no extra structures used
 MyCircularQueue.prototype.isFull = function() {
     return this.length === this.maxLength;
 };

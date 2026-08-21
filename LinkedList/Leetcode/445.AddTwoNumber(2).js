@@ -23,6 +23,8 @@ Output: [8,0,7]
  * @return {ListNode}
  */
 
+// Time Complexity: O(n + m) — pushes both lists then builds result, linear passes
+// Space Complexity: O(n + m) — two stacks store every digit from both lists
 var addTwoNumbers = function (l1, l2) {
   let stackA = [];
   let stackB = [];

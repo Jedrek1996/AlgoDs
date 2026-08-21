@@ -23,6 +23,8 @@ Explanation: A possible sequence is: A -> B -> idle -> idle -> A -> B -> idle ->
 There are only two types of tasks, A and B, which need to be separated by 3 intervals. This leads to idling twice between repetitions of these tasks.
 */
 
+// Time Complexity: O(m) — one pass to tally task frequencies (m = tasks.length); sorting the fixed 26-slot array is constant time
+// Space Complexity: O(1) — frequency array is always 26 slots regardless of input size
 var leastInterval = function (tasks, n) {
   let freq = Array(26).fill(0);
 

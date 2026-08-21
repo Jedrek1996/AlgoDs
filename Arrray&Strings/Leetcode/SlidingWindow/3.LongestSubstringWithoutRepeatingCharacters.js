@@ -28,6 +28,8 @@ s consists of English letters, digits, symbols and spaces.
 
 */
 
+// Time Complexity: O(n) — left and right pointers each traverse s once
+// Space Complexity: O(min(n, k)) — set holds unique chars in window, bounded by charset size
 var lengthOfLongestSubstring = function (s) {
   let set = new Set(); // holds unique chars in the current window [left, i]
   let left = 0; // left edge of the sliding window

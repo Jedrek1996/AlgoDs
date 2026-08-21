@@ -35,6 +35,8 @@ class MyQueue {
   }
 
   // Push the values out of s1 into s2 and push the new val to the head. then push back all from s2 to s1
+  // Time Complexity: O(n) — shuffles every existing element between the two stacks
+  // Space Complexity: O(1) — reuses s1/s2, no new allocation beyond existing items
   push(x) {
     while (this.s1.length > 0) {
       this.s2.push(this.s1.pop());
@@ -45,14 +47,20 @@ class MyQueue {
     }
   }
 
+  // Time Complexity: O(1) — front of queue is always the top of s1
+  // Space Complexity: O(1) — no extra structures used
   pop() {
     return this.s1.pop();
   }
 
+  // Time Complexity: O(1) — reads the top of s1 directly
+  // Space Complexity: O(1) — no extra structures used
   peek() {
     return this.s1[this.s1.length - 1];
   }
 
+  // Time Complexity: O(1) — checks the stack length
+  // Space Complexity: O(1) — no extra structures used
   empty() {
     return this.s1.length === 0;
   }

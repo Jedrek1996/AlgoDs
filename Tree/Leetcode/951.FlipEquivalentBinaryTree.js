@@ -21,6 +21,8 @@ Input: root1 = [], root2 = [1]
 Output: false
 */
 
+// Time Complexity: O(n) — each pair of corresponding nodes compared once
+// Space Complexity: O(h) — recursion call stack, worst case O(n) if unbalanced
 var flipEquiv = function (root1, root2) {
   function checker(node1, node2) {
     if (!node1 && !node2) return true;
